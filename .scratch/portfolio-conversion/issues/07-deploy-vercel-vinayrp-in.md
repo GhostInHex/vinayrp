@@ -109,3 +109,18 @@ pre-deploy gates remain green and committed at `f24b67a`.
    `"url"` reads `https://vinayrp.in` (see review followup above).
 
 Ticket stays `ready-for-human`.
+
+### Deferral (2026-08-25) — owner decision: stay on localhost for now
+
+Owner decided to defer the Vercel deployment ("keep it on localhost, we
+will do this later"). Site verified serving correctly on
+`http://localhost:3000` via `next start` off today's prod build:
+
+- Kept features 200: `/`, `/vcard`, `/blog/rss`, `/manifest.webmanifest`,
+  `/robots.txt`, `/sitemap.xml`, `/llms.txt`, `/og/simple`
+- Deleted routes 404: `/game`, `/components`
+- Home HTML contains "Vinay Reddy Patil" + "Full-Stack Developer"
+
+The smoke-check #1 findings above (wrong site live on vinayrp.in) still
+stand and should be re-checked when deployment resumes. Ticket stays
+`ready-for-human`; no code changes made for the deferral.
