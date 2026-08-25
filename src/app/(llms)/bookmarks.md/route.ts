@@ -14,11 +14,9 @@ const categorySections = Object.values(BookmarkCategory)
   })
   .filter(({ items }) => items.length > 0)
 
-const content = `# Bookmarks
-
-> Articles, courses, books, references, and tools I keep coming back to.
-
-${BOOKMARKS.length} bookmarks in total, grouped by category and newest first. They are also listed on ${SITE_INFO.url}/#bookmarks.
+const body =
+  BOOKMARKS.length > 0
+    ? `${BOOKMARKS.length} bookmarks in total, grouped by category and newest first. They are also listed on ${SITE_INFO.url}/#bookmarks.
 
 ${categorySections
   .map(
@@ -31,7 +29,14 @@ ${items
   )
   .join("\n")}`
   )
-  .join("\n\n")}
+  .join("\n\n")}`
+    : "None saved yet."
+
+const content = `# Bookmarks
+
+> Articles, courses, books, references, and tools I keep coming back to.
+
+${body}
 `
 
 export const revalidate = false

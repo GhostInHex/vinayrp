@@ -1,8 +1,15 @@
 import { CERTIFICATIONS } from "@/features/portfolio/data/certifications"
 
+const body =
+  CERTIFICATIONS.length > 0
+    ? CERTIFICATIONS.map(
+        (item) => `- [${item.title}](${item.credentialURL})`
+      ).join("\n")
+    : "None earned yet."
+
 const content = `# Certifications
 
-${CERTIFICATIONS.map((item) => `- [${item.title}](${item.credentialURL})`).join("\n")}
+${body}
 `
 
 export const revalidate = false

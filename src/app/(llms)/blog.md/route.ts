@@ -1,26 +1,6 @@
-import { format } from "date-fns"
+import { buildBlogMarkdown } from "@/lib/llms-content"
 
-import { SITE_INFO } from "@/config/site"
-import { getBlogPosts } from "@/features/doc/data/documents"
-
-const allPosts = getBlogPosts()
-  .slice()
-  .sort(
-    (a, b) =>
-      new Date(b.metadata.createdAt).getTime() -
-      new Date(a.metadata.createdAt).getTime()
-  )
-
-const content = `# Blog
-
-> Writing about code, design, and everything in between.
-
-Each link below returns the full post as Markdown. Drop the \`.mdx\` extension for the web page.
-
-## All posts (${allPosts.length})
-
-${allPosts.map((item) => `- [${item.metadata.title}](${SITE_INFO.url}/blog/${item.slug}.mdx) (${format(new Date(item.metadata.createdAt), "yyyy-MM-dd")}): ${item.metadata.description}`).join("\n")}
-`
+const content = buildBlogMarkdown()
 
 export const revalidate = false
 export const dynamic = "force-static"

@@ -1,4 +1,5 @@
 import type { Education } from "../types/education"
 
-// Seeded with Vinay's education details in ticket 04, from vinay-resume-2.pdf.
+// Empty at launch — the resume carries degree details to be confirmed by
+// Vinay; seeding this file restores the Education panel and llms entry.
 export const EDUCATION: Education[] = []

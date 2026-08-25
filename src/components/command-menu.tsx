@@ -7,7 +7,6 @@ import { useTiks } from "@rexa-developer/tiks/react"
 import {
   BookmarkIcon,
   BoxIcon,
-  BriefcaseBusinessIcon,
   CircleCheckBigIcon,
   CornerDownLeftIcon,
   CrownIcon,
@@ -15,7 +14,6 @@ import {
   FileTextIcon,
   GraduationCapIcon,
   LayersIcon,
-  LineChartIcon,
   MonitorIcon,
   MoonStarIcon,
   RssIcon,
@@ -41,7 +39,11 @@ import {
 } from "@/components/ui/command"
 import type { DocPreview } from "@/features/doc/types/document"
 import { SOCIAL_ICONS } from "@/features/portfolio/components/social-link-icons"
+import { BOOKMARKS } from "@/features/portfolio/data/bookmarks"
+import { CERTIFICATIONS } from "@/features/portfolio/data/certifications"
+import { EDUCATION } from "@/features/portfolio/data/education"
 import { SOCIAL_LINKS } from "@/features/portfolio/data/social-links"
+import { TECH_STACK } from "@/features/portfolio/data/tech-stack"
 
 import { NewsIcon, SearchIcon } from "./icons"
 import { getMarkSVG, SiteMark } from "./site-mark"
@@ -79,6 +81,58 @@ const MENU_LINKS: CommandLinkItem[] = [
   },
 ]
 
+// Sections that render only when their data is seeded — their anchors are
+// offered only when they exist on the page, keeping the menu free of dead
+// links. (The Experiences section was deleted outright: Vinay has no
+// employment history. Re-add an Insights anchor if OpenPanel goes live.)
+const STACK_LINKS: CommandLinkItem[] =
+  TECH_STACK.length > 0
+    ? [
+        {
+          title: "Stack",
+          href: "/#stack",
+          kind: "page",
+          icon: <LayersIcon />,
+        },
+      ]
+    : []
+
+const EDUCATION_LINKS: CommandLinkItem[] =
+  EDUCATION.length > 0
+    ? [
+        {
+          title: "Education",
+          href: "/#education",
+          kind: "page",
+          icon: <GraduationCapIcon />,
+        },
+      ]
+    : []
+
+const CERTIFICATION_LINKS: CommandLinkItem[] =
+  CERTIFICATIONS.length > 0
+    ? [
+        {
+          title: "Certifications",
+          href: "/#certs",
+          kind: "page",
+          icon: <CircleCheckBigIcon />,
+        },
+      ]
+    : []
+
+const BOOKMARK_LINKS: CommandLinkItem[] =
+  BOOKMARKS.length > 0
+    ? [
+        {
+          title: "Bookmarks",
+          href: "/#bookmarks",
+          kind: "page",
+          icon: <BookmarkIcon />,
+        },
+      ]
+    : []
+
 const PORTFOLIO_LINKS: CommandLinkItem[] = [
   {
     title: "Hello",
@@ -86,24 +140,8 @@ const PORTFOLIO_LINKS: CommandLinkItem[] = [
     kind: "page",
     icon: <TextInitialIcon />,
   },
-  {
-    title: "Stack",
-    href: "/#stack",
-    kind: "page",
-    icon: <LayersIcon />,
-  },
-  {
-    title: "Experience",
-    href: "/#experience",
-    kind: "page",
-    icon: <BriefcaseBusinessIcon />,
-  },
-  {
-    title: "Education",
-    href: "/#education",
-    kind: "page",
-    icon: <GraduationCapIcon />,
-  },
+  ...STACK_LINKS,
+  ...EDUCATION_LINKS,
   {
     title: "Projects",
     href: "/#projects",
@@ -116,24 +154,8 @@ const PORTFOLIO_LINKS: CommandLinkItem[] = [
     kind: "page",
     icon: <CrownIcon />,
   },
-  {
-    title: "Certifications",
-    href: "/#certs",
-    kind: "page",
-    icon: <CircleCheckBigIcon />,
-  },
-  {
-    title: "Bookmarks",
-    href: "/#bookmarks",
-    kind: "page",
-    icon: <BookmarkIcon />,
-  },
-  {
-    title: "Insights",
-    href: "/#insights",
-    kind: "page",
-    icon: <LineChartIcon />,
-  },
+  ...CERTIFICATION_LINKS,
+  ...BOOKMARK_LINKS,
 ]
 
 const SOCIAL_LINK_ITEMS: CommandLinkItem[] = SOCIAL_LINKS.map((item) => ({

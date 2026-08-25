@@ -1,17 +1,25 @@
 import { EDUCATION } from "@/features/portfolio/data/education"
 
+const body =
+  EDUCATION.length > 0
+    ? EDUCATION.map((item) => {
+        const heading =
+          [item.degree, item.fieldOfStudy].filter(Boolean).join(", ") ||
+          item.school
+        const school = heading === item.school ? "" : ` | ${item.school}`
+        const skills = item.skills?.length
+          ? `\n\nSkills: ${item.skills.join(", ")}`
+          : ""
+        const description = item.description
+          ? `\n\n${item.description.trim()}`
+          : ""
+        return `## ${heading}${school}\n\nDuration: ${item.period.start} - ${item.period.end || "Present"}${skills}${description}`
+      }).join("\n\n")
+    : "Nothing listed yet."
+
 const content = `# Education
 
-${EDUCATION.map((item) => {
-  const heading =
-    [item.degree, item.fieldOfStudy].filter(Boolean).join(", ") || item.school
-  const school = heading === item.school ? "" : ` | ${item.school}`
-  const skills = item.skills?.length
-    ? `\n\nSkills: ${item.skills.join(", ")}`
-    : ""
-  const description = item.description ? `\n\n${item.description.trim()}` : ""
-  return `## ${heading}${school}\n\nDuration: ${item.period.start} - ${item.period.end || "Present"}${skills}${description}`
-}).join("\n\n")}
+${body}
 `
 
 export const revalidate = false

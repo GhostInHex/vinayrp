@@ -62,12 +62,6 @@ export default function HomePage() {
           <Education />
           <Separator />
 
-          <Projects />
-          <Separator />
-
-          <Awards />
-          <Separator />
-
           <Certifications />
           <Separator />
 
