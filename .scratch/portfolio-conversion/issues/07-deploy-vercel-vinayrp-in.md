@@ -74,3 +74,38 @@ Both axes clean of hard violations; findings addressed before commit:
   ticket comment (record of work) and README (user-facing doc) by design;
   README "Live site" link becomes accurate the moment DNS step completes,
   which is the same release that publishes this README.
+
+### Production smoke-check #1 (2026-08-25) — FAIL: wrong site deployed
+
+Ran the five-seam smoke-check against https://vinayrp.in from the agent.
+DNS + HTTPS + Vercel are already live (`Server: Vercel`,
+`X-Nextjs-Prerender: 1`, valid TLS), but **the deployed app is not this
+repo** — it serves an older/different Next.js portfolio ("Full Stack Dev",
+LocalInvitation project page). Findings per seam:
+
+1. Build: n/a remotely (local prod build already green on `f24b67a`).
+2. Identity: home HTML says "Vinay Reddy Patil" / "I am a Full Stack Dev"
+   and features a LocalInvitation project — not this build's hero
+   ("Full-Stack Developer", NovusMail → Project Ghost). ✗
+3. Branding sweep: moot until the right build deploys (page has zero
+   ncdai/chanhdai strings because it isn't our codebase at all).
+4. Deleted routes: `/components`, `/game` → 404 ✓, but trivially — the
+   whole route set is different.
+5. Kept features: `/vcard` 404, `/blog/rss` 404,
+   `/manifest.webmanifest` 404, `/robots.txt` 404, `/sitemap.xml` 404,
+   `/og/simple` 404, `/llms.txt` 404. ✗
+
+**Diagnosis:** the Vercel project behind vinayrp.in is deploying some other
+repository/branch (an earlier personal-site repo), not
+`GhostInHex/vinayrp.in`. Nothing in this repo needs changing — all four
+pre-deploy gates remain green and committed at `f24b67a`.
+
+**Human steps to unblock (Vercel dashboard):**
+1. In the vinayrp.in project settings, repoint Git integration to
+   `GhostInHex/vinayrp.in` (`master`), or create a new project importing it
+   and assign the domain there.
+2. Set env var `NEXT_PUBLIC_APP_URL=https://vinayrp.in`, redeploy.
+3. After deploy, re-run this smoke-check; also verify home-page JSON-LD
+   `"url"` reads `https://vinayrp.in` (see review followup above).
+
+Ticket stays `ready-for-human`.
