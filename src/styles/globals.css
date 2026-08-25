@@ -4,7 +4,6 @@
 
 @import "./typeset.css";
 @import "./scroll-fade-effect.css";
-@import "./style-preview.css";
 
 @plugin "@tailwindcss/typography";
 

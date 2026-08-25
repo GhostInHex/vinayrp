@@ -1,7 +1,6 @@
 import { SITE_INFO } from "@/config/site"
-import { getBlogPosts, getComponentDocs } from "@/features/doc/data/documents"
+import { getBlogPosts } from "@/features/doc/data/documents"
 
-const allComponents = getComponentDocs()
 const allPosts = getBlogPosts()
 
 const content = `# chanhdai.com
@@ -14,14 +13,8 @@ const content = `# chanhdai.com
 - [Projects](${SITE_INFO.url}/projects.md): Selected projects that show my skills and creativity.
 - [Awards](${SITE_INFO.url}/awards.md): My key awards and honors.
 - [Certifications](${SITE_INFO.url}/certifications.md): Certifications and credentials I've earned.
-- [Components](${SITE_INFO.url}/components.md): Every registry component, with install instructions.
-- [Blocks](${SITE_INFO.url}/blocks.md): Every registry block, grouped by category, with install instructions.
 - [Blog](${SITE_INFO.url}/blog.md): Every blog post, newest first, with publish dates.
 - [Bookmarks](${SITE_INFO.url}/bookmarks.md): Articles, courses, books, references, and tools I recommend.
-
-## Components
-
-${allComponents.map((item) => `- [${item.metadata.title}](${SITE_INFO.url}/components/${item.slug}.mdx): ${item.metadata.description}`).join("\n")}
 
 ## Blog
 

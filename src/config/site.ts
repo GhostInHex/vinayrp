@@ -24,20 +24,8 @@ export const META_THEME_COLORS = {
 
 export const MAIN_NAV: NavItem<Route>[] = [
   {
-    title: "Components",
-    href: "/components",
-  },
-  {
-    title: "Blocks",
-    href: "/blocks",
-  },
-  {
     title: "Blog",
     href: "/blog",
-  },
-  {
-    title: "Sponsors",
-    href: "/sponsors",
   },
 ]
 
@@ -53,8 +41,6 @@ export const X_HANDLE = SOCIAL.x.handle
 export const GITHUB_USERNAME = SOCIAL.github.handle
 export const SOURCE_CODE_GITHUB_REPO = "ncdai/chanhdai.com"
 export const SOURCE_CODE_GITHUB_URL = "https://github.com/ncdai/chanhdai.com"
-
-export const SPONSORSHIP_URL = "https://github.com/sponsors/ncdai"
 
 export const UTM_PARAMS = {
   utm_source: "chanhdai.com",
