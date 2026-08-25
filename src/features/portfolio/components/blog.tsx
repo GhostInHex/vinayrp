@@ -3,8 +3,7 @@ import { ArrowRightIcon } from "lucide-react"
 
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/base/ui/button"
-import { PostItem } from "@/features/blog/components/post-item"
-import { getBlogPosts } from "@/features/doc/data/documents"
+import { ExternalPostItem } from "@/features/blog/components/external-post-item"
 import {
   Panel,
   PanelHeader,
@@ -12,18 +11,23 @@ import {
   PanelTitleSup,
 } from "@/features/portfolio/components/panel"
 import { PanelTitleCopy } from "@/features/portfolio/components/panel-title-copy"
+import { EXTERNAL_POSTS } from "@/features/portfolio/data/external-posts"
 
+// Anchor id stays "blog" (the route is /blog); the label follows CONTEXT.md's
+// "Writing" vocabulary.
 const ID = "blog"
 
 export function Blog() {
-  const allPosts = getBlogPosts()
+  // External Posts — links out to Hashnode; self-hosted MDX posts arrive in
+  // phase 2 (see .scratch/portfolio-conversion/issues/05).
+  const posts = EXTERNAL_POSTS.slice(0, 6)
 
   return (
     <Panel id={ID}>
       <PanelHeader>
         <PanelTitle>
-          <a href={`#${ID}`}>Blog</a>
-          <PanelTitleSup>({allPosts.length})</PanelTitleSup>
+          <a href={`#${ID}`}>Writing</a>
+          <PanelTitleSup>({EXTERNAL_POSTS.length})</PanelTitleSup>
           <PanelTitleCopy id={ID} />
         </PanelTitle>
       </PanelHeader>
@@ -35,15 +39,15 @@ export function Blog() {
         </div>
 
         <ul className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-          {allPosts.slice(0, 6).map((post) => (
+          {posts.map((post) => (
             <li
-              key={post.slug}
+              key={post.id}
               className={cn(
                 "max-sm:screen-line-top max-sm:screen-line-bottom",
                 "sm:nth-[2n+1]:screen-line-top sm:nth-[2n+1]:screen-line-bottom"
               )}
             >
-              <PostItem post={post} headingAs="h3" imageLoading="lazy" />
+              <ExternalPostItem post={post} headingAs="h3" />
             </li>
           ))}
         </ul>

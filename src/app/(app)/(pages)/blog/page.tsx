@@ -1,23 +1,25 @@
-import { Suspense } from "react"
 import type { Metadata } from "next"
+import { ArrowUpRightIcon } from "lucide-react"
 import type { Blog, WithContext } from "schema-dts"
 
 import { JSON_LD_ID } from "@/config/json-ld"
 import { X_HANDLE } from "@/config/site"
 import { jsonLdBreadcrumbList, JsonLdScript } from "@/lib/json-ld"
-import { absoluteUrl } from "@/lib/utils"
+import { absoluteUrl, cn } from "@/lib/utils"
 import {
   PageHeading,
   PageHeadingTagline,
   PageHeadingTitle,
 } from "@/components/page-heading"
-import { PostList } from "@/features/blog/components/post-list"
-import { PostListWithSearch } from "@/features/blog/components/post-list-with-search"
-import { PostSearchInput } from "@/features/blog/components/post-search-input"
-import { getBlogPosts } from "@/features/doc/data/documents"
+import { ExternalPostItem } from "@/features/blog/components/external-post-item"
+import {
+  EXTERNAL_POSTS,
+  HASHNODE_URL,
+} from "@/features/portfolio/data/external-posts"
 
-const title = "Blog"
-const description = "Writing about code, design, and everything in between."
+const title = "Writing"
+const description =
+  "Articles on JavaScript, browsers, networking, and Git — published on Hashnode."
 
 const ogImage = `/og/simple?title=${encodeURIComponent(title)}&description=${encodeURIComponent(description)}`
 
@@ -45,9 +47,7 @@ export const metadata: Metadata = {
   },
 }
 
-function getBlogJsonLd(
-  posts: { slug: string; metadata: { title: string; createdAt: string } }[]
-): WithContext<Blog> {
+function getWritingJsonLd(): WithContext<Blog> {
   return {
     "@context": "https://schema.org",
     "@type": "Blog",
@@ -56,22 +56,20 @@ function getBlogJsonLd(
     description,
     url: absoluteUrl("/blog"),
     isPartOf: { "@id": JSON_LD_ID.website },
-    blogPost: posts.map((post) => ({
+    blogPost: EXTERNAL_POSTS.map((post) => ({
       "@type": "BlogPosting",
-      "@id": absoluteUrl(`/blog/${post.slug}`),
-      headline: post.metadata.title,
-      url: absoluteUrl(`/blog/${post.slug}`),
-      datePublished: new Date(post.metadata.createdAt).toISOString(),
+      "@id": post.url,
+      headline: post.title,
+      url: post.url,
+      datePublished: new Date(post.createdAt).toISOString(),
     })),
   }
 }
 
 export default function Page() {
-  const allPosts = getBlogPosts()
-
   return (
     <>
-      <JsonLdScript data={getBlogJsonLd(allPosts)} />
+      <JsonLdScript data={getWritingJsonLd()} />
 
       <JsonLdScript
         data={jsonLdBreadcrumbList([
@@ -80,7 +78,7 @@ export default function Page() {
             href: "/",
           },
           {
-            name: "Blog",
+            name: "Writing",
             href: "/blog",
           },
         ])}
@@ -88,27 +86,46 @@ export default function Page() {
 
       <div className="min-h-svh">
         <PageHeading>
-          <PageHeadingTagline>Blog</PageHeadingTagline>
+          <PageHeadingTagline>Writing</PageHeadingTagline>
           <PageHeadingTitle>
-            Writing about code, design, and everything in between.
+            Articles on JavaScript, browsers, networking, and Git.
           </PageHeadingTitle>
         </PageHeading>
 
         <div className="h-4" />
 
         <div className="screen-line-top screen-line-bottom p-2">
-          <Suspense
-            fallback={
-              <div className="flex h-9 w-full rounded-lg border border-input dark:bg-input/30" />
-            }
+          <a
+            className="group flex h-9 w-full items-center justify-between rounded-lg border border-input px-3 text-sm text-muted-foreground transition-[background-color] ease-out hover:bg-accent-muted dark:bg-input/30"
+            href={HASHNODE_URL}
+            target="_blank"
+            rel="noopener noreferrer"
           >
-            <PostSearchInput />
-          </Suspense>
+            All articles are published on Hashnode — read them there.
+            <ArrowUpRightIcon className="size-4 shrink-0 transition-transform group-hover:translate-x-px group-hover:-translate-y-px" />
+          </a>
         </div>
 
-        <Suspense fallback={<PostList posts={allPosts} />}>
-          <PostListWithSearch posts={allPosts} />
-        </Suspense>
+        <div className="relative pt-4">
+          <div className="pointer-events-none absolute inset-0 -z-1 grid grid-cols-1 gap-4 max-sm:hidden sm:grid-cols-2">
+            <div className="border-r border-line" />
+            <div className="border-l border-line" />
+          </div>
+
+          <ul className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+            {EXTERNAL_POSTS.map((post) => (
+              <li
+                key={post.id}
+                className={cn(
+                  "max-sm:screen-line-top max-sm:screen-line-bottom",
+                  "sm:nth-[2n+1]:screen-line-top sm:nth-[2n+1]:screen-line-bottom"
+                )}
+              >
+                <ExternalPostItem post={post} />
+              </li>
+            ))}
+          </ul>
+        </div>
 
         <div className="h-4" />
       </div>
