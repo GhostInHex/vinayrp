@@ -21,7 +21,8 @@ export const USER: User = {
   jobTitle: "Full-Stack Developer — AI Applications",
   jobs: [], // No employment history; the home page leads with projects instead.
   about: `- I’m Vinay Reddy Patil — a student full-stack developer focused on AI applications.
-- Builder of AI-powered products like [NovusMail](https://github.com/GhostInHex) and Project Ghost.
+- Full-stack developer building practical web products with modern frontend, backend, database, and AI technologies — shipping end-to-end applications with authentication, third-party APIs, realtime updates, and human-in-the-loop AI workflows.
+- Builder of AI-powered products like [NovusMail](https://novus.vinayrp.in/) and Project Ghost.
 - Published 14+ technical articles on [Hashnode](https://vinayrp-dev.hashnode.dev).
 `,
   avatar: "/avatar.svg", // Placeholder; swap this file to change it everywhere.

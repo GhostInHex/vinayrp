@@ -10,7 +10,6 @@ import { Blog } from "@/features/portfolio/components/blog"
 import { Bookmarks } from "@/features/portfolio/components/bookmarks"
 import { Certifications } from "@/features/portfolio/components/certifications"
 import { Education } from "@/features/portfolio/components/education"
-import { Experiences } from "@/features/portfolio/components/experiences"
 import { GitHubContributions } from "@/features/portfolio/components/github-contributions"
 import { Hello } from "@/features/portfolio/components/hello"
 import {
@@ -48,13 +47,16 @@ export default function HomePage() {
           <Hello />
           <Separator />
 
+          <Projects />
+          <Separator />
+
+          <Awards />
+          <Separator />
+
           <Blog />
           <Separator />
 
           <TechStack />
-          <Separator />
-
-          <Experiences />
           <Separator />
 
           <Education />

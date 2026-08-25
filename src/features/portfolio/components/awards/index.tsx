@@ -16,14 +16,14 @@ const SORTED_AWARDS = [...AWARDS].sort((a, b) => {
   return compareDesc(new Date(a.date), new Date(b.date))
 })
 
-const ID = "awards"
+const ID = "achievements"
 
 export function Awards() {
   return (
     <Panel id={ID}>
       <PanelHeader>
         <PanelTitle>
-          <a href={`#${ID}`}>Awards</a>
+          <a href={`#${ID}`}>Achievements</a>
           <PanelTitleSup>({AWARDS.length})</PanelTitleSup>
           <PanelTitleCopy id={ID} />
         </PanelTitle>
