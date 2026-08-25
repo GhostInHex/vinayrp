@@ -8,10 +8,31 @@
 
 **Blocked by:** 03.
 
-**Status:** ready-for-agent
+**Status:** done
 
-- [ ] Hero renders Vinay's name/title/bio/location from data files
-- [ ] Projects section shows NovusMail and Project Ghost with live demo/source links
-- [ ] Achievements section visible on home page with hackathon placements + writing milestone
-- [ ] No employment/jobs framing anywhere on the home page
-- [ ] `pnpm build` green
+- [x] Hero renders Vinay's name/title/bio/location from data files
+- [x] Projects section shows NovusMail and Project Ghost with live demo/source links
+- [x] Achievements section visible on home page with hackathon placements + writing milestone
+- [x] No employment/jobs framing anywhere on the home page
+- [x] `pnpm build` green
+
+## Outcome notes
+
+- Seeded `PROJECTS` (NovusMail leads, Project Ghost second) using the upstream
+  `Project` type as-is — no parallel structure invented. Demo URL is the
+  structured `link`; Source Code link rides in the description markdown.
+  URLs extracted from the resume PDF's link annotations.
+- Seeded `AWARDS` with ChaiCode 8th nationwide, HackBuzz 4th (NCET Bengaluru),
+  and the 14+ Hashnode articles milestone; panel relabeled "Achievements"
+  (`#achievements`) per CONTEXT.md vocabulary.
+- Home order is now projects-led: Hello → Projects → Achievements → Blog → …;
+  the empty `<Experiences />` section was removed from the home page (no
+  employment framing); `USER.jobs` stays typed but empty (vCard/JSON-LD safe).
+- About block enriched with the resume summary line.
+- **Follow-up:** the resume carries no dates for project periods or award
+  dates — shipped values are best-guess placeholders marked `// TODO: verify`
+  in `projects.tsx` / `awards.tsx`. Correct them once Vinay confirms.
+- Code review flags accepted as-is: internal `awards/Award` naming retained
+  (upstream shape kept deliberately), demo/source link duplication inside
+  descriptions, data-level content tests (change-detector risk on copy edits).
+
