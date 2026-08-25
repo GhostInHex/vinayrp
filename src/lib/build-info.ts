@@ -1,8 +1,6 @@
 import { SOURCE_CODE_GITHUB_URL } from "@/config/site"
 import { USER } from "@/features/portfolio/data/user"
 
-import packageJson from "../../package.json"
-
 /**
  * Reads the Vercel deployment environment variables, which are server-side
  * only — do not import this from a client component. Set them in `.env.local`
@@ -60,9 +58,15 @@ export function getBuildInfo(): BuildInfo {
 
 const STACK_DEPENDENCIES = ["next", "react", "tailwindcss"]
 
+/**
+ * Kept in sync with package.json by hand. Inlining the full manifest here
+ * dragged every dependency name (including third-party npm scopes) into the
+ * server bundle, which the zero-upstream-branding check flags.
+ */
 const declaredVersions: Record<string, string | undefined> = {
-  ...packageJson.dependencies,
-  ...packageJson.devDependencies,
+  next: "^16.3.2",
+  react: "19.2.8",
+  tailwindcss: "^4.3.3",
 }
 
 /** The stack in npm spec form: `["next@16.3.0", …]`. */

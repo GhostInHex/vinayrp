@@ -4,9 +4,9 @@ import { useRef } from "react"
 import { useTheme } from "next-themes"
 
 import { cn } from "@/lib/utils"
-import { ChanhDaiMark } from "@/components/chanhdai-mark"
 import { DotGridSpotlight } from "@/components/dot-grid-spotlight"
 import { Magnet } from "@/components/react-bits/magnet"
+import { SiteMark } from "@/components/site-mark"
 
 const DOT_COLOR = {
   light: {
@@ -45,9 +45,9 @@ export function ProfileCover() {
         magnetStrength={6}
         wrapperClassName="pointer-events-none"
       >
-        <ChanhDaiMark
+        <SiteMark
           id="js-cover-mark"
-          className="h-12 w-24 min-[25rem]:h-14 min-[25rem]:w-28 sm:h-16 sm:w-32"
+          className="h-12 w-auto min-[25rem]:h-14 sm:h-16"
         />
       </Magnet>
     </div>

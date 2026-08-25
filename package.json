@@ -1,24 +1,24 @@
 {
-  "name": "chanhdai.com",
+  "name": "vinayrp.in",
   "version": "0.1.0",
   "description": "Personal portfolio of Vinay Reddy Patil.",
-  "homepage": "https://chanhdai.com",
+  "homepage": "https://vinayrp.in",
   "license": "MIT",
   "author": {
-    "name": "Nguyen Chanh Dai",
-    "email": "dai@chanhdai.com",
-    "url": "https://github.com/ncdai"
+    "name": "Vinay Reddy Patil",
+    "email": "vinayrpdev@gmail.com",
+    "url": "https://github.com/GhostInHex"
   },
   "contributors": [
     {
-      "name": "Nguyen Chanh Dai",
-      "email": "dai@chanhdai.com",
-      "url": "https://github.com/ncdai"
+      "name": "Vinay Reddy Patil",
+      "email": "vinayrpdev@gmail.com",
+      "url": "https://github.com/GhostInHex"
     }
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ncdai/chanhdai.com.git"
+    "url": "git+https://github.com/GhostInHex/vinayrp.in.git"
   },
   "scripts": {
     "dev": "next dev",

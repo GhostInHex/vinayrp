@@ -3,9 +3,9 @@ import { getBlogPosts } from "@/features/doc/data/documents"
 
 const allPosts = getBlogPosts()
 
-const content = `# chanhdai.com
+const content = `# Vinay Reddy Patil
 
-> A pixel-perfect dev portfolio and shadcn registry showcasing my work as a Design Engineer.
+> Full-Stack Developer focused on AI applications. Portfolio at ${SITE_INFO.url}.
 
 - [About](${SITE_INFO.url}/about.md): A quick intro to me, my tech stack, and how to connect.
 - [Experience](${SITE_INFO.url}/experience.md): Highlights from my career and key roles I've taken on.

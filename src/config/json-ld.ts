@@ -1,3 +1,4 @@
+import { decodeEmail } from "@/utils/string"
 import type { Person } from "schema-dts"
 
 import { SITE_INFO } from "@/config/site"
@@ -21,6 +22,9 @@ export const personJsonLd: Person = {
   alternateName: [USER.username],
   identifier: USER.username,
   image: USER.avatar,
+  jobTitle: USER.jobTitle,
+  address: USER.address,
+  email: `mailto:${decodeEmail(USER.emailB64)}`,
   url: SITE_INFO.url,
   // Public profiles opt in via their `sameAs` flag (Knowledge Graph).
   sameAs: SOCIAL_LINKS.filter((link) => link.sameAs).map((link) => link.href),

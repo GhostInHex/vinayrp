@@ -1,3 +1,5 @@
+import { readFile } from "node:fs/promises"
+import { join } from "node:path"
 import { NextResponse } from "next/server"
 import { decodeEmail, decodePhoneNumber } from "@/utils/string"
 import sharp from "sharp"
@@ -12,12 +14,20 @@ export const dynamicParams = false
 export async function GET() {
   const card = new VCard()
 
-  card
-    .addName(USER.lastName, USER.firstName)
-    .addPhoneNumber(decodePhoneNumber(USER.phoneNumberB64))
-    .addAddress(USER.address)
-    .addEmail(decodeEmail(USER.emailB64))
-    .addURL(USER.website)
+  const email = decodeEmail(USER.emailB64)
+  const phoneNumber = decodePhoneNumber(USER.phoneNumberB64)
+
+  card.addName(USER.lastName, USER.firstName).addAddress(USER.address)
+
+  if (phoneNumber) {
+    card.addPhoneNumber(phoneNumber)
+  }
+
+  if (email) {
+    card.addEmail(email)
+  }
+
+  card.addURL(USER.website)
 
   const photo = await getVCardPhoto(USER.avatar)
   if (photo) {
@@ -40,18 +50,30 @@ export async function GET() {
 
 async function getVCardPhoto(url: string) {
   try {
-    const res = await fetch(url)
+    // Local placeholder assets live in `public/`, so serve them from disk
+    // instead of fetching over the network (which fails at build time).
+    let buffer: Buffer
+    let contentType: string
 
-    if (!res.ok) {
-      return null
+    if (url.startsWith("/")) {
+      const filePath = join(process.cwd(), "public", url)
+      buffer = await readFile(filePath)
+      contentType = getMimeType(filePath)
+    } else {
+      const res = await fetch(url)
+
+      if (!res.ok) {
+        return null
+      }
+
+      buffer = Buffer.from(await res.arrayBuffer())
+      if (buffer.length === 0) {
+        return null
+      }
+
+      contentType = res.headers.get("Content-Type") || ""
     }
 
-    const buffer = Buffer.from(await res.arrayBuffer())
-    if (buffer.length === 0) {
-      return null
-    }
-
-    const contentType = res.headers.get("Content-Type") || ""
     if (!contentType.startsWith("image/")) {
       return null
     }
@@ -66,6 +88,16 @@ async function getVCardPhoto(url: string) {
   } catch {
     return null
   }
+}
+
+function getMimeType(filePath: string) {
+  if (filePath.endsWith(".png")) return "image/png"
+  if (filePath.endsWith(".jpg") || filePath.endsWith(".jpeg"))
+    return "image/jpeg"
+  if (filePath.endsWith(".webp")) return "image/webp"
+  if (filePath.endsWith(".gif")) return "image/gif"
+  if (filePath.endsWith(".svg")) return "image/svg+xml"
+  return ""
 }
 
 async function convertImageToJpeg(imageBuffer: Buffer): Promise<Buffer> {

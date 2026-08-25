@@ -9,10 +9,7 @@ import { DmcaIcon, GitHubIcon, LinkedInIcon, XIcon } from "@/components/icons"
 import { SiteFooterInteractiveLogotype } from "@/components/site-footer-brand"
 import { SOCIAL } from "@/features/portfolio/data/social-links"
 
-// Imported here rather than through `@/config/site`, which client components
-// pull in, to keep the manifest out of client bundles.
-import packageJson from "../../package.json"
-import { ChanhDaiMark } from "./chanhdai-mark"
+import { SiteMark } from "./site-mark"
 
 const INSPIRED_BY = [
   "Tailwind CSS",
@@ -22,16 +19,18 @@ const INSPIRED_BY = [
   "Devouring Details",
   "Skiper UI",
   "Making Software",
+  // Upstream of this fork — visible attribution per the MIT license grant.
+  "chanhdai.com",
 ]
 
 const OPENPANEL_URL =
-  "https://openpanel.dev?utm_source=chanhdai.com&utm_medium=referral&utm_campaign=footer"
+  "https://openpanel.dev?utm_source=vinayrp.in&utm_medium=referral&utm_campaign=footer"
 
 // Not derived from `SITE_INFO.url`: that follows `NEXT_PUBLIC_APP_URL` and
-// would read `ncdai.localhost` in dev.
-const SITE_TITLE = "chanhdai.com"
+// would read `vinayrp.localhost` in dev.
+const SITE_TITLE = "vinayrp.in"
 
-const SITE_SUBTITLE = packageJson.description
+const SITE_SUBTITLE = "Full-Stack Developer — AI Applications"
 
 /** Footer laid out as the title block of a technical drawing. */
 export function SiteFooterCad() {
@@ -155,7 +154,7 @@ export function SiteFooterCad() {
 
         <div className="screen-line-top screen-line-bottom flex items-center gap-3 px-4 py-3 text-muted-foreground">
           <Link href="/" className="mr-auto text-foreground">
-            <ChanhDaiMark className="h-4" />
+            <SiteMark className="h-5 w-auto" />
           </Link>
 
           <a

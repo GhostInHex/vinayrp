@@ -1,64 +1,47 @@
 import type { User } from "@/features/portfolio/types/user"
 
 export const USER: User = {
-  firstName: "Chánh Đại",
-  lastName: "Nguyễn",
-  displayName: "Chánh Đại",
-  username: "ncdai",
+  firstName: "Vinay",
+  lastName: "Reddy Patil",
+  displayName: "Vinay Reddy Patil",
+  username: "vinayrp",
   gender: "male",
   pronouns: "he/him",
-  bio: "Creating with code. Small details matter.",
+  bio: "Full-Stack Developer building AI applications.",
   flipSentences: [
-    "Creating with code. Small details matter.",
-    "Design Engineer.",
-    "Open source contributor.",
-    "I own a vintage iPhone.",
+    "Full-Stack Developer.",
+    "AI Applications.",
+    "14+ articles published.",
+    "Based in Bengaluru.",
   ],
-  address: "Ho Chi Minh City, Viet Nam",
-  phoneNumberB64: "Kzg0Nzc3ODg4MTQ4", // E.164 format, base64 encoded (https://t.io.vn/base64-string-converter)
-  emailB64: "ZGFpQGNoYW5oZGFpLmNvbQ==", // base64 encoded
-  website: "https://chanhdai.com",
-  jobTitle: "Design Engineer",
-  jobs: [
-    {
-      title: "Design Engineer",
-      company: "shadcncraft",
-      website: "https://shadcncraft.com?atp=ncdai",
-      experienceId: "shadcncraft",
-    },
-    {
-      title: "Founder",
-      company: "Quaric",
-      website: "https://quaric.com",
-      experienceId: "quaric",
-    },
-  ],
-  about: `- I’m Chánh Đại (call me Dai) — a Design Engineer with 5+ years of experience, known for pixel-perfect execution and an obsessive attention to detail.
-- Passionate about exploring new technologies and turning ideas into reality through polished, thoughtfully crafted projects.
-- Creator of [chanhdai.com](https://github.com/ncdai/chanhdai.com) (2k stars), [React Wheel Picker](https://react-wheel-picker.chanhdai.com) (50k+ weekly downloads, ▲Vercel OSS Program), and [ZaDark](https://zadark.com) (80k+ downloads, 30k+ users) — peak metrics.
+  address: "Bengaluru, India",
+  phoneNumberB64: "", // E.164 format, base64 encoded — add a real number before launch
+  emailB64: "dmluYXlycGRldkBnbWFpbC5jb20=", // base64 encoded
+  website: "https://vinayrp.in",
+  jobTitle: "Full-Stack Developer — AI Applications",
+  jobs: [], // No employment history; the home page leads with projects instead.
+  about: `- I’m Vinay Reddy Patil — a student full-stack developer focused on AI applications.
+- Builder of AI-powered products like [NovusMail](https://github.com/GhostInHex) and Project Ghost.
+- Published 14+ technical articles on [Hashnode](https://vinayrp-dev.hashnode.dev).
 `,
-  avatar: "https://assets.chanhdai.com/images/chanhdai-avatar-ghibli.webp",
+  avatar: "/avatar.svg", // Placeholder; swap this file to change it everywhere.
   avatarVariants: {
-    lightOff: "https://assets.chanhdai.com/images/avatar-light-off.webp",
-    lightOn: "https://assets.chanhdai.com/images/avatar-light-on.webp",
-    darkOff: "https://assets.chanhdai.com/images/avatar-dark-off.webp",
-    darkOn: "https://assets.chanhdai.com/images/avatar-dark-on.webp",
+    lightOff: "/avatar.svg",
+    lightOn: "/avatar.svg",
+    darkOff: "/avatar.svg",
+    darkOn: "/avatar.svg",
   },
   ogImage:
-    "https://assets.chanhdai.com/images/screenshot-og-image-dark.png?t=1778602757",
-  namePronunciationUrl: "https://assets.chanhdai.com/audio/chanhdai.mp3",
-  timeZone: "Asia/Ho_Chi_Minh",
+    "/og/simple?title=Vinay%20Reddy%20Patil&description=Full-Stack%20Developer%20%E2%80%94%20AI%20Applications",
+  namePronunciationUrl: "",
+  timeZone: "Asia/Kolkata",
   keywords: [
-    "ncdai",
-    "nguyenchanhdai",
-    "nguyen chanh dai",
-    "chanhdai",
-    "chanh dai",
-    "iamncdai",
-    "quaric",
-    "zadark",
-    "nguyễn chánh đại",
-    "chánh đại",
+    "Vinay Reddy Patil",
+    "Vinay Reddy",
+    "vinayrp",
+    "vinayrp.in",
+    "full-stack developer",
+    "AI applications",
   ],
-  dateCreated: "2023-10-20", // YYYY-MM-DD
+  dateCreated: "2026-08-25", // YYYY-MM-DD
 }
