@@ -12,6 +12,19 @@ import {
   HASHNODE_URL,
 } from "@/features/portfolio/data/external-posts"
 
+function sortedExternalPosts() {
+  return [...EXTERNAL_POSTS].sort(
+    (a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
+  )
+}
+
+/** Markdown bullets for the Hashnode feed, newest first. */
+function externalPostLines(): string {
+  return sortedExternalPosts()
+    .map((post) => `- [${post.title}](${post.url}) (${post.createdAt})`)
+    .join("\n")
+}
+
 /**
  * Builders for the /llms* markdown surfaces (see `src/app/(llms)/`). Entries
  * describing a section are only emitted when that section actually has
@@ -67,13 +80,7 @@ export function buildLlmsIndex(): string {
     },
   ].filter((entry) => entry.enabled !== false)
 
-  const writingLines = [...EXTERNAL_POSTS]
-    .sort(
-      (a, b) =>
-        new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
-    )
-    .map((post) => `- [${post.title}](${post.url}) (${post.createdAt})`)
-    .join("\n")
+  const writingLines = externalPostLines()
 
   return `# Vinay Reddy Patil
 
@@ -107,12 +114,7 @@ Vinay's articles are published on [Hashnode](${HASHNODE_URL}); none are self-hos
 
 ## Posts (${EXTERNAL_POSTS.length}, newest first)
 
-${[...EXTERNAL_POSTS]
-  .sort(
-    (a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
-  )
-  .map((post) => `- [${post.title}](${post.url}) (${post.createdAt})`)
-  .join("\n")}
+${externalPostLines()}
 `
   }
 

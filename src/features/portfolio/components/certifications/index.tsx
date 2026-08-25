@@ -12,15 +12,7 @@ import { CertificationItem } from "./certification-item"
 
 const ID = "certs"
 
-/**
- * Hidden entirely while `CERTIFICATIONS` is empty so the page shows no bare
- * "(0)" panel; seeding the data file brings the section back (one-file edit).
- */
 export function Certifications() {
-  if (CERTIFICATIONS.length === 0) {
-    return null
-  }
-
   return (
     <Panel id={ID}>
       <PanelHeader>

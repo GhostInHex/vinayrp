@@ -5,15 +5,7 @@ import { PanelTitleCopy } from "./panel-title-copy"
 
 const ID = "stack"
 
-/**
- * Hidden entirely while `TECH_STACK` is empty so the page shows no bare panel
- * header; seeding the data file brings the section back (one-file edit).
- */
 export function TechStack() {
-  if (TECH_STACK.length === 0) {
-    return null
-  }
-
   return (
     <Panel id={ID}>
       <PanelHeader>

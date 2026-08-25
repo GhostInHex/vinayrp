@@ -81,57 +81,16 @@ const MENU_LINKS: CommandLinkItem[] = [
   },
 ]
 
-// Sections that render only when their data is seeded — their anchors are
-// offered only when they exist on the page, keeping the menu free of dead
-// links. (The Experiences section was deleted outright: Vinay has no
-// employment history. Re-add an Insights anchor if OpenPanel goes live.)
-const STACK_LINKS: CommandLinkItem[] =
-  TECH_STACK.length > 0
-    ? [
-        {
-          title: "Stack",
-          href: "/#stack",
-          kind: "page",
-          icon: <LayersIcon />,
-        },
-      ]
-    : []
-
-const EDUCATION_LINKS: CommandLinkItem[] =
-  EDUCATION.length > 0
-    ? [
-        {
-          title: "Education",
-          href: "/#education",
-          kind: "page",
-          icon: <GraduationCapIcon />,
-        },
-      ]
-    : []
-
-const CERTIFICATION_LINKS: CommandLinkItem[] =
-  CERTIFICATIONS.length > 0
-    ? [
-        {
-          title: "Certifications",
-          href: "/#certs",
-          kind: "page",
-          icon: <CircleCheckBigIcon />,
-        },
-      ]
-    : []
-
-const BOOKMARK_LINKS: CommandLinkItem[] =
-  BOOKMARKS.length > 0
-    ? [
-        {
-          title: "Bookmarks",
-          href: "/#bookmarks",
-          kind: "page",
-          icon: <BookmarkIcon />,
-        },
-      ]
-    : []
+// Section anchors are offered only while their data actually renders a panel
+// on the home page, keeping the menu free of dead links. (The Experiences
+// section was deleted outright: Vinay has no employment history. Re-add an
+// Insights anchor if OpenPanel goes live.)
+function optionalSectionLinks(
+  count: number,
+  link: CommandLinkItem
+): CommandLinkItem[] {
+  return count > 0 ? [link] : []
+}
 
 const PORTFOLIO_LINKS: CommandLinkItem[] = [
   {
@@ -140,8 +99,18 @@ const PORTFOLIO_LINKS: CommandLinkItem[] = [
     kind: "page",
     icon: <TextInitialIcon />,
   },
-  ...STACK_LINKS,
-  ...EDUCATION_LINKS,
+  ...optionalSectionLinks(TECH_STACK.length, {
+    title: "Stack",
+    href: "/#stack",
+    kind: "page",
+    icon: <LayersIcon />,
+  }),
+  ...optionalSectionLinks(EDUCATION.length, {
+    title: "Education",
+    href: "/#education",
+    kind: "page",
+    icon: <GraduationCapIcon />,
+  }),
   {
     title: "Projects",
     href: "/#projects",
@@ -154,8 +123,18 @@ const PORTFOLIO_LINKS: CommandLinkItem[] = [
     kind: "page",
     icon: <CrownIcon />,
   },
-  ...CERTIFICATION_LINKS,
-  ...BOOKMARK_LINKS,
+  ...optionalSectionLinks(CERTIFICATIONS.length, {
+    title: "Certifications",
+    href: "/#certs",
+    kind: "page",
+    icon: <CircleCheckBigIcon />,
+  }),
+  ...optionalSectionLinks(BOOKMARKS.length, {
+    title: "Bookmarks",
+    href: "/#bookmarks",
+    kind: "page",
+    icon: <BookmarkIcon />,
+  }),
 ]
 
 const SOCIAL_LINK_ITEMS: CommandLinkItem[] = SOCIAL_LINKS.map((item) => ({

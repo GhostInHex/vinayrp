@@ -18,15 +18,7 @@ const SORTED_BOOKMARKS = [...BOOKMARKS].sort((a, b) => {
 
 const ID = "bookmarks"
 
-/**
- * Hidden entirely while `BOOKMARKS` is empty so the page shows no bare "(0)"
- * panel; seeding the data file brings the section back (one-file edit).
- */
 export function Bookmarks() {
-  if (SORTED_BOOKMARKS.length === 0) {
-    return null
-  }
-
   return (
     <Panel id={ID}>
       <PanelHeader>

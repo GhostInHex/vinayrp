@@ -11,15 +11,7 @@ import { EducationItem } from "./education-item"
 
 const ID = "education"
 
-/**
- * Hidden entirely while `EDUCATION` is empty so the page shows no bare panel
- * header; seeding the data file brings the section back (one-file edit).
- */
 export function Education() {
-  if (EDUCATION.length === 0) {
-    return null
-  }
-
   return (
     <Panel id={ID}>
       <PanelHeader>

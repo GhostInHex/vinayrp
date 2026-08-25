@@ -21,6 +21,10 @@ import { ProfileHeader } from "@/features/portfolio/components/profile-header"
 import { Projects } from "@/features/portfolio/components/projects"
 import { SocialLinks } from "@/features/portfolio/components/social-links"
 import { TechStack } from "@/features/portfolio/components/tech-stack"
+import { BOOKMARKS } from "@/features/portfolio/data/bookmarks"
+import { CERTIFICATIONS } from "@/features/portfolio/data/certifications"
+import { EDUCATION } from "@/features/portfolio/data/education"
+import { TECH_STACK } from "@/features/portfolio/data/tech-stack"
 import { USER } from "@/features/portfolio/data/user"
 
 export const metadata: Metadata = {
@@ -54,18 +58,37 @@ export default function HomePage() {
           <Separator />
 
           <Blog />
-          <Separator />
+          {/* Optional panels render only while their data files have content.
+              Each brings its own leading separator, and the unconditional one
+              below closes the run before Insights — so exactly one divider
+              sits between any two sections whether zero, some, or all of
+              these are seeded. Seeding a data file is the one-file edit that
+              brings a panel back. */}
+          {TECH_STACK.length > 0 && (
+            <>
+              <Separator />
+              <TechStack />
+            </>
+          )}
+          {EDUCATION.length > 0 && (
+            <>
+              <Separator />
+              <Education />
+            </>
+          )}
+          {CERTIFICATIONS.length > 0 && (
+            <>
+              <Separator />
+              <Certifications />
+            </>
+          )}
+          {BOOKMARKS.length > 0 && (
+            <>
+              <Separator />
+              <Bookmarks />
+            </>
+          )}
 
-          <TechStack />
-          <Separator />
-
-          <Education />
-          <Separator />
-
-          <Certifications />
-          <Separator />
-
-          <Bookmarks />
           <Separator />
 
           <Suspense fallback={<InsightsSkeleton />}>

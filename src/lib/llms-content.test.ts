@@ -41,9 +41,9 @@ describe("buildLlmsIndex", () => {
 
   it("lists every Hashnode article under Writing, newest first", () => {
     expect(index).toContain(`[Hashnode](${HASHNODE_URL})`)
-    expect(
-      index.match(new RegExp(HASHNODE_URL, "g"))?.length
-    ).toBeGreaterThanOrEqual(EXTERNAL_POSTS.length)
+    // Count link occurrences without regex-escaping the URL.
+    const hashnodeLinks = index.split(HASHNODE_URL).length - 1
+    expect(hashnodeLinks).toBeGreaterThanOrEqual(EXTERNAL_POSTS.length)
 
     const writingSection = index.slice(index.indexOf("## Writing"))
     for (const post of EXTERNAL_POSTS) {

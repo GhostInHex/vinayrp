@@ -53,6 +53,17 @@ routes (plus /og/domain) all 404. Built-output sweep: only remaining
 (intentional per spec). `pnpm lint`, `pnpm test:run` (58), `pnpm build`,
 `pnpm check-types` all green.
 
+- Review-followup polish (same ticket): empty-panel gating moved from
+  inside each component up to the home page, so each optional section now
+  brings its own *leading* separator and hides its divider with it — no
+  stacked dividers whether zero, some, or all panels are seeded.
+  Command-menu per-section const arrays collapsed into one
+  `optionalSectionLinks()` helper; llms builders' triplicated
+  sort/map/join extracted to `externalPostLines()`; Hashnode-URL counting
+  in the test switched to `split` (no regex escaping). Two-axis code
+  review found one real defect (trailing-separator layout could stack two
+  dividers when only some sections were seeded) — fixed before commit.
+
 Deferred for owner input (pre-existing): project/award placeholder dates
 (`// TODO: verify` in projects.tsx/awards.tsx), phone number B64 empty in
 user.ts, TECH_STACK/EDUCATION content still unseeded.
