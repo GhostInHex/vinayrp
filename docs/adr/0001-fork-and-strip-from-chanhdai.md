@@ -1,0 +1,3 @@
+# Fork-and-strip from ncdai/chanhdai.com rather than a fresh build
+
+This codebase intentionally looks like someone else's website: it is a stripped fork of [ncdai/chanhdai.com](https://github.com/ncdai/chanhdai.com), which is MIT-licensed (excluding the author's name and logo, which are trademarked — all personal info and branding must be and has been replaced). We chose forking over rebuilding because the goal was to own this exact design quickly; the alternative was weeks of reimplementation to reach the same pixel-perfect result. Consequence: much upstream code exists that this portfolio never uses (registry, blocks, docs routes were deleted at conversion time), and keeping the upstream LICENSE/attribution is both legally required and honest.
