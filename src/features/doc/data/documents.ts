@@ -31,9 +31,17 @@ function readMDXFile(filePath: string) {
  * `dir` (e.g. shared `props.ts`) are ignored — only category folders are read.
  */
 function getMDXData(dir: string) {
-  const categoryDirs = fs
-    .readdirSync(dir, { withFileTypes: true })
-    .filter((entry) => entry.isDirectory())
+  // Content folders may be absent in fresh clones/deploys: ticket 03 deleted
+  // all upstream MDX posts, and git never commits empty dirs. Return [] so
+  // the blog/llms routes render their empty states instead of crashing build.
+  let entries: import("fs").Dirent[]
+  try {
+    entries = fs.readdirSync(dir, { withFileTypes: true })
+  } catch (error) {
+    if ((error as NodeJS.ErrnoException)?.code === "ENOENT") return []
+    throw error
+  }
+  const categoryDirs = entries.filter((entry) => entry.isDirectory())
 
   return categoryDirs.flatMap((categoryDir) => {
     const category = categoryDir.name
