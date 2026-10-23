@@ -1,6 +1,6 @@
 import { z } from "zod"
 
-import { op } from "./openpanel"
+import { getPostHog } from "./posthog"
 
 const eventSchema = z.object({
   name: z.enum([
@@ -33,7 +33,6 @@ export type Event = z.infer<typeof eventSchema>
 export function trackEvent(input: Event) {
   const event = eventSchema.parse(input)
   if (event) {
-    console.log("trackEvent:", event)
-    op.track(event.name, event.properties)
+    getPostHog()?.capture(event.name, event.properties)
   }
 }
