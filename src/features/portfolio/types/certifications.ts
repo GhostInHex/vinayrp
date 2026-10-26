@@ -1,4 +1,12 @@
 export type Certification = {
+  id: string
+  kind: "placement" | "participation"
+  result: string
+  project: string
+  dateLabel: string
+  description: string
+  image: string
+  imageAlt: string
   title: string
   issuer: string
   /**
@@ -12,7 +20,8 @@ export type Certification = {
    */
   issuerIconName?: string
   /**
-   * Issue date in ISO format (YYYY-MM-DD). Parsed and formatted in the UI via Day.js.
+   * Known issue date as YYYY, YYYY-MM, or YYYY-MM-DD. Empty if unknown.
+   * The gallery uses dateLabel to preserve the supplied date precision.
    */
   issueDate: string
   /**

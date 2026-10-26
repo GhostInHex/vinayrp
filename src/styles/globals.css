@@ -122,6 +122,32 @@
   @apply underline decoration-current/30 decoration-1 underline-offset-3 transition-colors hover:decoration-current;
 }
 
+/* Base UI Collapsible.Panel: it measures the content into
+   --collapsible-panel-height and sets data-starting/ending-style. */
+@utility collapsible-panel {
+  height: var(--collapsible-panel-height);
+  overflow: hidden;
+  transition-property: height, opacity;
+  transition-duration: 200ms;
+  transition-timing-function: cubic-bezier(0.23, 1, 0.32, 1);
+
+  &[data-starting-style],
+  &[data-ending-style] {
+    height: 0;
+    opacity: 0;
+  }
+
+  /* Keep the fade, drop the height movement. */
+  @media (prefers-reduced-motion: reduce) {
+    transition-property: opacity;
+
+    &[data-starting-style],
+    &[data-ending-style] {
+      height: var(--collapsible-panel-height);
+    }
+  }
+}
+
 @utility screen-line-top {
   @apply relative;
   &:before {

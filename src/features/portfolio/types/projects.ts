@@ -1,12 +1,31 @@
+export type ProjectTourSlide = {
+  id: string
+  src: string
+  alt: string
+  title: string
+  description: string
+  width: number
+  height: number
+  /** Show a short landscape screenshot viewport, including when enlarged. */
+  crop?: "hero"
+  /** CSS object-position for a cropped screenshot viewport, e.g. top or bottom. */
+  cropPosition?: string
+}
+
 export type Project = {
   /** Stable unique identifier (used as list key/anchor). */
   id: string
   title: string
+  summary: string
+  sourceUrl: string
+  recognition?: string
+  status?: "Prototype"
+  tour?: ProjectTourSlide[]
   /**
    * Project period for display and sorting.
    * Use "MM.YYYY" format. Omit `end` for ongoing projects.
    */
-  period: {
+  period?: {
     /** Start date (e.g., "05.2025"). */
     start: string
     /** End date; leave undefined for "Present". */

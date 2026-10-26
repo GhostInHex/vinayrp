@@ -5,7 +5,6 @@ import type { ProfilePage, WithContext } from "schema-dts"
 import { JSON_LD_ID } from "@/config/json-ld"
 import { JsonLdScript } from "@/lib/json-ld"
 import { absoluteUrl, cn } from "@/lib/utils"
-import { Awards } from "@/features/portfolio/components/awards"
 import { Blog } from "@/features/portfolio/components/blog"
 import { Bookmarks } from "@/features/portfolio/components/bookmarks"
 import { Certifications } from "@/features/portfolio/components/certifications"
@@ -54,8 +53,12 @@ export default function HomePage() {
           <Projects />
           <Separator />
 
-          <Awards />
-          <Separator />
+          {CERTIFICATIONS.length > 0 && (
+            <>
+              <Certifications />
+              <Separator />
+            </>
+          )}
 
           <Blog />
           {/* Optional panels render only while their data files have content.
@@ -74,12 +77,6 @@ export default function HomePage() {
             <>
               <Separator />
               <Education />
-            </>
-          )}
-          {CERTIFICATIONS.length > 0 && (
-            <>
-              <Separator />
-              <Certifications />
             </>
           )}
           {BOOKMARKS.length > 0 && (

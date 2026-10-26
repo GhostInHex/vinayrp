@@ -25,7 +25,8 @@ export function Projects() {
 
       <CollapsibleList
         items={PROJECTS}
-        max={4}
+        max={5}
+        keyExtractor={(item) => item.id}
         renderItem={(item) => <ProjectItem project={item} />}
       />
     </Panel>

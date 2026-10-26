@@ -1,5 +1,3 @@
-import { compareDesc } from "date-fns"
-
 import { CollapsibleList } from "@/components/collapsible-list"
 import {
   Panel,
@@ -13,7 +11,7 @@ import { AWARDS } from "@/features/portfolio/data/awards"
 import { AwardItem } from "./award-item"
 
 const SORTED_AWARDS = [...AWARDS].sort((a, b) => {
-  return compareDesc(new Date(a.date), new Date(b.date))
+  return (Date.parse(b.date) || 0) - (Date.parse(a.date) || 0)
 })
 
 const ID = "achievements"

@@ -24,18 +24,20 @@ describe("buildLlmsIndex", () => {
     expect(index).toContain("[About](https://vinayrp.in/about.md)")
     expect(index).toContain("[Projects](https://vinayrp.in/projects.md)")
     expect(index).toContain("[Awards](https://vinayrp.in/awards.md)")
+    expect(CERTIFICATIONS.length).toBeGreaterThan(0)
+    expect(index).toContain(
+      "[Certificates and results](https://vinayrp.in/certifications.md)"
+    )
   })
 
   it("omits entries for sections whose data is still empty", () => {
     // Guard the guard: if these gain data, flip the corresponding expectations.
     expect(EXPERIENCES).toHaveLength(0)
     expect(EDUCATION).toHaveLength(0)
-    expect(CERTIFICATIONS).toHaveLength(0)
     expect(BOOKMARKS).toHaveLength(0)
 
     expect(index).not.toContain("experience.md")
     expect(index).not.toContain("education.md")
-    expect(index).not.toContain("certifications.md")
     expect(index).not.toContain("bookmarks.md")
   })
 

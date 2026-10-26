@@ -30,7 +30,7 @@ export function AwardItem({
 
   return (
     <Collapsible className={className} disabled={!canExpand}>
-      <div className="flex items-center hover:bg-accent-muted">
+      <div className="flex items-center transition-[background-color] ease-out hover:bg-accent-muted">
         <IconTile className="mx-4">{award.icon ?? <Crown />}</IconTile>
 
         <div className="flex-1 border-l border-dashed border-line">
@@ -52,20 +52,23 @@ export function AwardItem({
                   aria-hidden
                 />
 
-                <div>
-                  <dt className="sr-only">Awarded in</dt>
-                  <dd>
-                    <time dateTime={new Date(award.date).toISOString()}>
-                      {format(new Date(award.date), "MM.yyyy")}
-                    </time>
-                  </dd>
-                </div>
-
-                <Separator
-                  className="data-vertical:h-4 data-vertical:self-center"
-                  orientation="vertical"
-                  aria-hidden
-                />
+                {award.date && (
+                  <>
+                    <div>
+                      <dt className="sr-only">Awarded in</dt>
+                      <dd>
+                        <time dateTime={new Date(award.date).toISOString()}>
+                          {format(new Date(award.date), "MM.yyyy")}
+                        </time>
+                      </dd>
+                    </div>
+                    <Separator
+                      className="data-vertical:h-4 data-vertical:self-center"
+                      orientation="vertical"
+                      aria-hidden
+                    />
+                  </>
+                )}
 
                 <div>
                   <dt className="sr-only">Received in Grade</dt>
@@ -79,7 +82,7 @@ export function AwardItem({
                 <TooltipTrigger
                   render={
                     <a
-                      className="relative flex size-6 shrink-0 items-center justify-center text-muted-foreground after:absolute after:-inset-2 hover:text-foreground [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4"
+                      className="relative flex size-6 shrink-0 items-center justify-center text-muted-foreground transition-[color,scale] after:absolute after:-inset-2 hover:text-foreground active:scale-[0.9] motion-reduce:active:scale-none [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4"
                       href={award.referenceLink}
                       target="_blank"
                       rel="noopener"
@@ -105,7 +108,7 @@ export function AwardItem({
       </div>
 
       {canExpand && (
-        <CollapsibleContent className="overflow-hidden">
+        <CollapsibleContent className="collapsible-panel">
           <div className="typeset typeset-description border-t border-line p-4">
             <Markdown>{award.description}</Markdown>
           </div>

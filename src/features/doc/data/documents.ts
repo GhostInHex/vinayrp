@@ -1,4 +1,5 @@
 import fs from "fs"
+import type { Dirent } from "fs"
 import path from "path"
 import { cache } from "react"
 import matter from "gray-matter"
@@ -34,7 +35,7 @@ function getMDXData(dir: string) {
   // Content folders may be absent in fresh clones/deploys: ticket 03 deleted
   // all upstream MDX posts, and git never commits empty dirs. Return [] so
   // the blog/llms routes render their empty states instead of crashing build.
-  let entries: import("fs").Dirent[]
+  let entries: Dirent[]
   try {
     entries = fs.readdirSync(dir, { withFileTypes: true })
   } catch (error) {

@@ -53,7 +53,7 @@ export function buildLlmsIndex(): string {
       title: "Projects",
       file: "projects.md",
       description:
-        "Selected projects — NovusMail and Project Ghost — with skills and links.",
+        "Selected AI and full-stack projects, plus a Python prototype, with skills and source links.",
     },
     {
       title: "Awards",
@@ -62,9 +62,10 @@ export function buildLlmsIndex(): string {
       enabled: AWARDS.length > 0,
     },
     {
-      title: "Certifications",
+      title: "Certificates and results",
       file: "certifications.md",
-      description: "Certifications and credentials I've earned.",
+      description:
+        "Hackathon placements, participation certificates, and official results.",
       enabled: CERTIFICATIONS.length > 0,
     },
     {

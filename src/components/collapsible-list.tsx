@@ -36,7 +36,7 @@ export function CollapsibleList<T>({
         ))}
       </ul>
 
-      <CollapsibleContent render={<ul />}>
+      <CollapsibleContent className="collapsible-panel" render={<ul />}>
         {items.slice(max).map((item, index) => (
           <li
             key={
@@ -68,7 +68,7 @@ export function CollapsibleList<T>({
                   Show less
                 </span>
 
-                <ChevronDownIcon className="group-data-open/collapsible:rotate-180" />
+                <ChevronDownIcon className="transition-transform duration-200 ease-[cubic-bezier(0.23,1,0.32,1)] group-data-open/collapsible:rotate-180 motion-reduce:transition-none" />
               </Button>
             }
           />

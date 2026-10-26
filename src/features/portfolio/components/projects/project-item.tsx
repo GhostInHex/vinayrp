@@ -1,8 +1,7 @@
 import Image from "next/image"
-import { addQueryParams } from "@/utils/url"
-import { BoxIcon, InfinityIcon, LinkIcon } from "lucide-react"
+import { ArrowUpRightIcon, BoxIcon, CodeXmlIcon } from "lucide-react"
 
-import { UTM_PARAMS } from "@/config/site"
+import { cn } from "@/lib/utils"
 import { IconTile } from "@/components/ui/icon-tile"
 import { Tag } from "@/components/ui/tag"
 import {
@@ -13,14 +12,10 @@ import {
   CollapsibleContent,
   CollapsibleTrigger,
 } from "@/components/base/ui/collapsible"
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipTrigger,
-} from "@/components/base/ui/tooltip"
 import { Markdown } from "@/components/markdown"
 
 import type { Project } from "../../types/projects"
+import { ProjectTour } from "./project-tour"
 
 export function ProjectItem({
   className,
@@ -29,99 +24,94 @@ export function ProjectItem({
   className?: string
   project: Project
 }) {
-  const { start, end } = project.period
-  const isOngoing = !end
-  const isSinglePeriod = end === start
+  const hasDemo = project.link !== project.sourceUrl
 
   return (
-    <Collapsible className={className} defaultOpen={project.isExpanded}>
-      <div className="group/project flex items-center hover:bg-accent-muted">
+    <Collapsible
+      className={cn("group/project", className)}
+      defaultOpen={project.isExpanded}
+    >
+      <div className="flex items-start">
         {project.logo ? (
           <Image
             src={project.logo}
-            alt={project.title}
+            alt=""
             width={32}
             height={32}
-            quality={100}
-            className="mx-4 flex size-6 shrink-0 grayscale select-none group-hover/project:grayscale-0"
-            unoptimized
-            aria-hidden
+            className="mx-4 mt-5 size-6 shrink-0"
           />
         ) : (
-          <IconTile className="mx-4">{project.icon ?? <BoxIcon />}</IconTile>
+          <IconTile className="mx-4 mt-5">
+            {project.icon ?? <BoxIcon />}
+          </IconTile>
         )}
-
-        <div className="flex-1 border-l border-dashed border-line">
-          <CollapsibleTrigger className="flex w-full items-center gap-2 p-4 pr-2 text-left">
-            <div className="flex-1">
-              <h3 className="mb-1 leading-snug font-medium text-balance">
-                {project.title}
-              </h3>
-
-              <dl className="text-sm text-muted-foreground">
-                <dt className="sr-only">Period</dt>
-                <dd className="flex items-center gap-0.5">
-                  <span>{start}</span>
-                  {!isSinglePeriod && (
-                    <>
-                      <span className="font-mono">—</span>
-                      {isOngoing ? (
-                        <InfinityIcon
-                          className="size-4.5 translate-y-[0.5px]"
-                          aria-label="Present"
-                        />
-                      ) : (
-                        <span>{end}</span>
-                      )}
-                    </>
-                  )}
-                </dd>
-              </dl>
-            </div>
-
-            <Tooltip>
-              <TooltipTrigger
-                render={
-                  <a
-                    className="relative flex size-6 shrink-0 items-center justify-center text-muted-foreground after:absolute after:-inset-2 hover:text-foreground"
-                    href={addQueryParams(project.link, UTM_PARAMS)}
-                    target="_blank"
-                    rel="noopener"
-                    aria-label="Open project"
-                  >
-                    <LinkIcon className="pointer-events-none size-4" />
-                  </a>
-                }
+        <div className="flex min-w-0 flex-1 flex-col gap-3 border-l border-dashed border-line p-4">
+          <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
+            <h3 className="font-medium">{project.title}</h3>
+            {project.recognition && (
+              <span className="text-xs text-muted-foreground">
+                {project.recognition}
+              </span>
+            )}
+            {project.status && <Tag>{project.status}</Tag>}
+          </div>
+          <p className="text-sm leading-relaxed text-muted-foreground">
+            {project.summary}
+          </p>
+          <ul
+            className="flex flex-wrap gap-1.5"
+            aria-label={`${project.title} technologies`}
+          >
+            {project.skills.map((skill) => (
+              <li key={skill} className="flex">
+                <Tag>{skill}</Tag>
+              </li>
+            ))}
+          </ul>
+          <div className="flex flex-wrap items-center gap-x-5 gap-y-2 text-sm">
+            {hasDemo && (
+              <a
+                href={project.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex min-h-10 items-center gap-1.5 underline-offset-4 hover:underline focus-visible:outline-2 focus-visible:outline-ring"
+                aria-label={`Try ${project.title} live demo`}
+              >
+                Live demo <ArrowUpRightIcon className="size-3.5" aria-hidden />
+              </a>
+            )}
+            <a
+              href={project.sourceUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex min-h-10 items-center gap-1.5 underline-offset-4 hover:underline focus-visible:outline-2 focus-visible:outline-ring"
+              aria-label={`View ${project.title} source code`}
+            >
+              <CodeXmlIcon className="size-3.5" aria-hidden /> Source code
+            </a>
+            <CollapsibleTrigger className="ml-auto inline-flex min-h-10 items-center gap-1.5 text-muted-foreground hover:text-foreground focus-visible:outline-2 focus-visible:outline-ring">
+              <span className="group-data-open/project:hidden">Expand</span>
+              <span className="group-data-closed/project:hidden">Collapse</span>
+              <span className="sr-only">
+                {" "}
+                {project.title} implementation details
+              </span>
+              <CollapsibleChevronsUpDownIcon
+                duration={0.15}
+                className="size-4"
               />
-              <TooltipContent>
-                <p>Open project</p>
-              </TooltipContent>
-            </Tooltip>
-
-            <div className="shrink-0 text-muted-foreground [&_svg]:size-4">
-              <CollapsibleChevronsUpDownIcon duration={0.15} />
-            </div>
-          </CollapsibleTrigger>
+            </CollapsibleTrigger>
+          </div>
         </div>
       </div>
-
-      <CollapsibleContent className="overflow-hidden">
-        <div className="space-y-4 border-t border-line p-4">
-          {project.description && (
-            <div className="typeset typeset-description">
-              <Markdown>{project.description}</Markdown>
-            </div>
+      <CollapsibleContent className="collapsible-panel">
+        <div className="flex flex-col gap-4 border-t border-line p-4">
+          {project.tour && project.tour.length > 0 && (
+            <ProjectTour title={project.title} slides={project.tour} />
           )}
-
-          {project.skills.length > 0 && (
-            <ul className="flex flex-wrap gap-1.5">
-              {project.skills.map((skill, index) => (
-                <li key={index} className="flex">
-                  <Tag>{skill}</Tag>
-                </li>
-              ))}
-            </ul>
-          )}
+          <div className="typeset typeset-description">
+            <Markdown>{project.description ?? ""}</Markdown>
+          </div>
         </div>
       </CollapsibleContent>
     </Collapsible>

@@ -1,0 +1,249 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-23T19:59:29.163Z",
+  "title": "Design System: Vinay Reddy Patil portfolio",
+  "extensions": {
+    "colorMeta": {
+      "background": {
+        "role": "neutral",
+        "displayName": "background"
+      },
+      "foreground": {
+        "role": "neutral",
+        "displayName": "foreground"
+      },
+      "primary": {
+        "role": "primary",
+        "displayName": "primary"
+      },
+      "primary-foreground": {
+        "role": "neutral",
+        "displayName": "primary foreground"
+      },
+      "muted": {
+        "role": "neutral",
+        "displayName": "muted"
+      },
+      "muted-foreground": {
+        "role": "neutral",
+        "displayName": "muted foreground"
+      },
+      "border": {
+        "role": "neutral",
+        "displayName": "border"
+      },
+      "line": {
+        "role": "neutral",
+        "displayName": "line"
+      },
+      "ring": {
+        "role": "neutral",
+        "displayName": "ring"
+      },
+      "tag-background": {
+        "role": "neutral",
+        "displayName": "tag background"
+      },
+      "dark-background": {
+        "role": "neutral",
+        "displayName": "dark background"
+      },
+      "dark-foreground": {
+        "role": "neutral",
+        "displayName": "dark foreground"
+      },
+      "dark-muted": {
+        "role": "neutral",
+        "displayName": "dark muted"
+      },
+      "dark-muted-foreground": {
+        "role": "neutral",
+        "displayName": "dark muted foreground"
+      },
+      "dark-border": {
+        "role": "neutral",
+        "displayName": "dark border"
+      },
+      "dark-ring": {
+        "role": "neutral",
+        "displayName": "dark ring"
+      },
+      "dark-tag-background": {
+        "role": "neutral",
+        "displayName": "dark tag background"
+      }
+    },
+    "typographyMeta": {
+      "headline": {
+        "displayName": "Panel heading",
+        "purpose": "Section titles."
+      },
+      "title": {
+        "displayName": "Project title",
+        "purpose": "Project names."
+      },
+      "body": {
+        "displayName": "Summary",
+        "purpose": "Project and certificate descriptions."
+      },
+      "label": {
+        "displayName": "Mono tag",
+        "purpose": "Technologies and results."
+      }
+    },
+    "shadows": [
+      {
+        "name": "xs",
+        "value": "0 1px 2px 0 rgb(0 0 0 / 0.05)",
+        "purpose": "Joined outline filter group."
+      },
+      {
+        "name": "lg",
+        "value": "0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1)",
+        "purpose": "Dialog popup."
+      }
+    ],
+    "motion": [
+      {
+        "name": "collapsible",
+        "value": "height 200ms cubic-bezier(0.23, 1, 0.32, 1), opacity 200ms cubic-bezier(0.23, 1, 0.32, 1)",
+        "purpose": "Measured collapsible panel; reduced motion transitions opacity only."
+      },
+      {
+        "name": "dialog",
+        "value": "100ms",
+        "purpose": "Existing fade and 95% zoom entry/exit."
+      },
+      {
+        "name": "button-active",
+        "value": "scale(0.98)",
+        "purpose": "Pressed button feedback."
+      },
+      {
+        "name": "tour-progress",
+        "value": "transform 250ms ease-out; static bar under reduced motion",
+        "purpose": "Embla product-tour progress indicator."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "sm",
+        "value": "640px"
+      },
+      {
+        "name": "md",
+        "value": "768px"
+      }
+    ],
+    "provenance": {
+      "mode": "scan",
+      "sources": [
+        "src/styles/globals.css",
+        "src/lib/fonts.ts",
+        "src/app/(app)/page.tsx",
+        "src/components/command-menu.tsx",
+        "src/features/portfolio/components/panel.tsx",
+        "src/features/portfolio/components/projects/index.tsx",
+        "src/features/portfolio/components/projects/project-item.tsx",
+        "src/features/portfolio/data/projects.tsx",
+        "src/components/kibo-ui/image-zoom/index.tsx",
+        "src/features/portfolio/components/certifications/certificate-gallery.tsx",
+        "src/components/ui/tag.tsx",
+        "src/components/base/ui/button.tsx",
+        "src/components/base/ui/dialog.tsx",
+        "src/components/base/ui/toggle-group.tsx",
+        "src/components/base/ui/toggle.tsx",
+        "src/features/portfolio/components/projects/project-tour.tsx",
+        "src/features/portfolio/data/project-tours.ts",
+        "src/components/ui/carousel.tsx",
+        "src/components/collapsible-list.tsx",
+        "node_modules/tailwindcss/theme.css"
+      ],
+      "screenshots": [
+        ".impeccable/review/screenshot-1792778473591.png",
+        ".impeccable/review/screenshot-1792778473892.png",
+        ".impeccable/review/screenshot-1792778474359.png",
+        ".impeccable/review/screenshot-1792778574016.png",
+        ".impeccable/review/screenshot-1792778581776.png",
+        ".impeccable/review/screenshot-1792778582016.png",
+        ".impeccable/review/projects-update-desktop.png",
+        ".impeccable/review/projects-update-mobile.png",
+        ".impeccable/review/projects-update-compact-desktop.png",
+        ".impeccable/review/projects-update-compact-mobile.png",
+        ".impeccable/review/projects-update-readeasy-desktop.png",
+        ".impeccable/review/projects-update-menu.png",
+        ".impeccable/review/projects-update-merged-section.png",
+        ".impeccable/review/product-tour-final-novus-desktop.png",
+        ".impeccable/review/product-tour-final-novus-mobile.png",
+        ".impeccable/review/product-tour-final-readeasy-desktop.png",
+        ".impeccable/review/product-tour-final-ghost-desktop.png",
+        ".impeccable/review/product-tour-final-impact-desktop.png",
+        ".impeccable/review/product-tour-final-deadmon-desktop.png",
+        ".impeccable/review/product-tour-final-deadmon-mobile.png",
+        ".impeccable/review/product-tour-final-crop-dialog-mobile.png"
+      ],
+      "note": "Incumbent theme unchanged. No approved comp. Only observed values are recorded; no synthesized tonal ramps. Product-tour screenshots are listed from .impeccable/review/product-tour-final-*.png. Snippets cover primitives used by this extension and are visual previews, not framework behavior."
+    }
+  },
+  "components": [
+    {
+      "name": "Outline button",
+      "kind": "button",
+      "refersTo": "button-outline",
+      "description": "Open original credential action; light appearance with the source dark-mode input treatment.",
+      "html": "<button class=\"ds-outline\">Open original <svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><path d=\"M7 7h10v10M7 17 17 7\"/></svg></button>",
+      "css": ".ds-outline{font-family:var(--font-sans, \"Geist Sans\", sans-serif);color:var(--foreground,oklch(0.141 0.005 285.823));display:inline-flex;align-items:center;justify-content:center;gap:6px;height:36px;padding:0 10px;border:1px solid transparent;border-radius:8px;font-size:14px;font-weight:500;white-space:nowrap;transition:all 150ms cubic-bezier(0.4,0,0.2,1);background:var(--background,oklch(1 0 0));border-color:var(--border,oklch(0.92 0.004 286.32))}.ds-outline:hover{background:var(--muted,oklch(0.967 0.001 286.375))}.ds-outline:active{transform:scale(.98)}.ds-outline:focus-visible{outline:2px solid var(--ring,oklch(0.705 0.015 286.067));outline-offset:2px;box-shadow:0 0 0 3px color-mix(in oklab,var(--ring,oklch(0.705 0.015 286.067)) 50%,transparent)}:host-context(.dark) .ds-outline{border-color:var(--input,lab(100% 0 0 / .15));background:color-mix(in oklab,var(--input,lab(100% 0 0 / .15)) 30%,transparent)}:host-context(.dark) .ds-outline:hover{background:color-mix(in oklab,var(--input,lab(100% 0 0 / .15)) 50%,transparent)}"
+    },
+    {
+      "name": "Ghost close button",
+      "kind": "button",
+      "refersTo": "button-ghost",
+      "description": "Compact dialog close control.",
+      "html": "<button class=\"ds-close\" aria-label=\"Close\"><svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><path d=\"m18 6-12 12M6 6l12 12\"/></svg></button>",
+      "css": ".ds-close{font-family:var(--font-sans, \"Geist Sans\", sans-serif);color:var(--foreground,oklch(0.141 0.005 285.823));display:inline-flex;align-items:center;justify-content:center;gap:6px;height:36px;padding:0 10px;border:1px solid transparent;border-radius:8px;font-size:14px;font-weight:500;white-space:nowrap;transition:all 150ms cubic-bezier(0.4,0,0.2,1);width:32px;height:32px;padding:0;background:transparent}.ds-close:hover{background:var(--muted,oklch(0.967 0.001 286.375))}.ds-close:active{transform:scale(.98)}.ds-close:focus-visible{outline:2px solid var(--ring,oklch(0.705 0.015 286.067));outline-offset:2px;}:host-context(.dark) .ds-close:hover{background:color-mix(in oklab,var(--muted,oklch(0.967 0.001 286.375)) 50%,transparent)}"
+    },
+    {
+      "name": "Technology or result tag",
+      "kind": "chip",
+      "refersTo": "tag",
+      "description": "Non-interactive mono tag for project technology or certificate result.",
+      "html": "<span class=\"ds-tag\">TypeScript</span>",
+      "css": ".ds-tag{display:inline-flex;align-items:center;border:1px solid var(--border,oklch(0.92 0.004 286.32));border-radius:9999px;background:oklch(0.985 0 0);padding:2px 6px;font-family:var(--font-mono,\"Geist Mono\",monospace);font-size:12px;line-height:16px;color:var(--muted-foreground,oklch(0.552 0.016 285.938))}:host-context(.dark) .ds-tag{background:oklch(0.21 0.006 285.885)}"
+    },
+    {
+      "name": "Portfolio panel",
+      "kind": "card",
+      "description": "Square Projects section with NovusMail expanded. NovusMail and ReadEasy start open; Project Ghost, ImpactTrace, and deadmon start compact. The preview shows one captioned product-tour slide, its expand control, arrows, and progress at 1 of 5. One screenshot fills a centered rail capped at 512px. Previous and next controls overlay the left and right image edges with 44px touch targets. The enlarged dialog uses nearly the full viewport and provides zoom in, zoom out, fit, and scrolling with original image pixels. This static preview omits the remaining rows, most implementation prose, swipe/keyboard behavior, and the enlarged dialog.",
+      "html": "<section class=\"ds-panel\"><header class=\"ds-panel-header\"><h2 class=\"ds-panel-title\">Projects</h2></header><div class=\"ds-panel-body\"><article class=\"ds-project\"><div class=\"ds-project-row\"><span class=\"ds-project-icon\"><svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" aria-hidden=\"true\"><rect x=\"2\" y=\"4\" width=\"20\" height=\"16\" rx=\"2\"/><path d=\"m22 7-9 6a2 2 0 0 1-2 0L2 7\"/></svg></span><div class=\"ds-project-summary\"><div class=\"ds-project-heading\"><h3 class=\"ds-project-title\">NovusMail</h3><span class=\"ds-project-recognition\">8th place · ChaiCode</span></div><p class=\"ds-project-copy\">A keyboard-first Gmail and Google Calendar workspace with an AI copilot for email triage and scheduling.</p><ul class=\"ds-project-tags\" aria-label=\"NovusMail technologies\"><li class=\"ds-project-tag\">Next.js</li><li class=\"ds-project-tag\">TypeScript</li><li class=\"ds-project-tag\">PostgreSQL</li><li class=\"ds-project-tag\">Drizzle ORM</li><li class=\"ds-project-tag\">Gmail API</li><li class=\"ds-project-tag\">Google Calendar API</li><li class=\"ds-project-tag\">OAuth</li><li class=\"ds-project-tag\">Webhooks</li><li class=\"ds-project-tag\">Server-Sent Events</li></ul><div class=\"ds-project-actions\"><a class=\"ds-project-link\" href=\"https://novus.vinayrp.in/\" target=\"_blank\" rel=\"noopener noreferrer\" aria-label=\"Try NovusMail live demo\">Live demo <svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" aria-hidden=\"true\"><path d=\"M7 7h10v10M7 17 17 7\"/></svg></a><a class=\"ds-project-link\" href=\"https://github.com/GhostInHex/novus-mail\" target=\"_blank\" rel=\"noopener noreferrer\" aria-label=\"View NovusMail source code\"><svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" aria-hidden=\"true\"><path d=\"m16 18 6-6-6-6M8 6l-6 6 6 6m6-14-4 16\"/></svg> Source code</a><button class=\"ds-project-toggle\" aria-expanded=\"true\" aria-controls=\"ds-novusmail-details\">Collapse<span class=\"ds-project-sr-only\"> NovusMail implementation details</span><svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" aria-hidden=\"true\"><path d=\"m7 15 5 5 5-5m-10-6 5-5 5 5\"/></svg></button></div></div></div><div class=\"ds-project-details\" id=\"ds-novusmail-details\"><section class=\"ds-tour\" aria-label=\"NovusMail product tour\"><div class=\"ds-tour-head\"><p>Product tour</p><span>Swipe to explore</span></div><div class=\"ds-tour-track\"><div class=\"ds-tour-slide\"><div class=\"ds-tour-frame\"><img class=\"ds-tour-image\" src=\"/projects/tours/novusmail/landing.webp\" alt=\"NovusMail landing page with an inbox and calendar product preview\" width=\"3228\" height=\"2016\"/><span class=\"ds-tour-expand\"><svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" aria-hidden=\"true\"><path d=\"M8 3H5a2 2 0 0 0-2 2v3m13-5h3a2 2 0 0 1 2 2v3M3 16v3a2 2 0 0 0 2 2h3m8 0h3a2 2 0 0 0 2-2v-3\"/></svg></span></div><div class=\"ds-tour-caption\"><h4>Inbox and calendar together</h4><p>Triage email and manage meetings from one keyboard-first workspace.</p></div></div></div><div class=\"ds-tour-controls\"><button class=\"ds-tour-arrow\" type=\"button\" disabled aria-label=\"Previous NovusMail screenshot\"><svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" aria-hidden=\"true\"><path d=\"m15 18-6-6 6-6\"/></svg></button><button class=\"ds-tour-arrow\" type=\"button\" aria-label=\"Next NovusMail screenshot\"><svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" aria-hidden=\"true\"><path d=\"m9 18 6-6-6-6\"/></svg></button><div class=\"ds-tour-progress\"><span></span></div><p class=\"ds-tour-count\">1 of 5</p></div></section><div class=\"ds-project-prose\"><strong>AI-Powered Gmail and Calendar Command Center</strong><ul><li>Built a unified workspace that lets users triage Gmail, read and respond to threads, manage their calendar, and keep email context visible while scheduling meetings.</li></ul></div></div></article></div></section>",
+      "css": ".ds-panel{font-family:var(--font-sans, \"Geist Sans\", sans-serif);color:var(--foreground,oklch(0.141 0.005 285.823));position:relative;border-left:1px solid var(--line,color-mix(in oklab,var(--border,oklch(0.92 0.004 286.32)) 64%,var(--background,oklch(1 0 0))));border-right:1px solid var(--line,color-mix(in oklab,var(--border,oklch(0.92 0.004 286.32)) 64%,var(--background,oklch(1 0 0))))}.ds-panel::before,.ds-panel::after{content:\"\";position:absolute;left:calc(50% - 100vw);width:200vw;height:1px;background:var(--line,color-mix(in oklab,var(--border,oklch(0.92 0.004 286.32)) 64%,var(--background,oklch(1 0 0))));pointer-events:none}.ds-panel::before{top:0}.ds-panel::after{bottom:0}.ds-panel-header{padding:0 16px;border-bottom:1px solid var(--line,color-mix(in oklab,var(--border,oklch(0.92 0.004 286.32)) 64%,var(--background,oklch(1 0 0))))}.ds-panel-title{margin:0;font-size:30px;line-height:36px;font-weight:500;letter-spacing:-.025em;text-wrap:balance}.ds-panel-body{font-size:14px}.ds-project-row{display:flex;align-items:flex-start}.ds-project-icon{display:flex;align-items:center;justify-content:center;width:24px;height:24px;flex-shrink:0;margin:20px 16px 0;border:1px solid color-mix(in oklab,var(--muted-foreground,oklch(0.552 0.016 285.938)) 15%,transparent);border-radius:6px;background:var(--muted,oklch(0.967 0.001 286.375));color:var(--muted-foreground,oklch(0.552 0.016 285.938));box-shadow:0 0 0 1px var(--background,oklch(1 0 0)),0 0 0 2px color-mix(in oklab,var(--border,oklch(0.92 0.004 286.32)) 50%,transparent)}.ds-project-summary{display:flex;flex:1;min-width:0;flex-direction:column;gap:12px;border-left:1px dashed var(--line,var(--border,oklch(0.92 0.004 286.32)));padding:16px}.ds-project-heading{display:flex;flex-wrap:wrap;align-items:center;gap:4px 12px}.ds-project-title{margin:0;font-size:16px;line-height:24px;font-weight:500}.ds-project-recognition{font-size:12px;color:var(--muted-foreground,oklch(0.552 0.016 285.938))}.ds-project-copy{margin:0;font-size:14px;line-height:1.625;color:var(--muted-foreground,oklch(0.552 0.016 285.938))}.ds-project-tags{display:flex;flex-wrap:wrap;gap:6px;margin:0;padding:0;list-style:none}.ds-project-tag{display:inline-flex;align-items:center;border:1px solid var(--border,oklch(0.92 0.004 286.32));border-radius:9999px;background:oklch(0.985 0 0);padding:2px 6px;font-family:var(--font-mono,\"Geist Mono\",monospace);font-size:12px;line-height:16px;color:var(--muted-foreground,oklch(0.552 0.016 285.938))}.ds-project-actions{display:flex;flex-wrap:wrap;align-items:center;gap:8px 20px;font-size:14px}.ds-project-link,.ds-project-toggle{display:inline-flex;align-items:center;gap:6px;min-height:40px}.ds-project-link{color:inherit;text-decoration:none;text-underline-offset:4px}.ds-project-link:hover{text-decoration:underline}.ds-project-toggle{margin-left:auto;border:0;background:transparent;padding:0;font:inherit;color:var(--muted-foreground,oklch(0.552 0.016 285.938));cursor:pointer}.ds-project-toggle:hover{color:var(--foreground,oklch(0.141 0.005 285.823))}.ds-project-link:focus-visible,.ds-project-toggle:focus-visible{outline:2px solid var(--ring,oklch(0.705 0.015 286.067));outline-offset:2px}.ds-project-sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}.ds-project-details{display:flex;flex-direction:column;gap:16px;border-top:1px solid var(--line,var(--border,oklch(0.92 0.004 286.32)));padding:16px}.ds-tour{display:flex;width:100%;max-width:512px;margin-inline:auto;min-width:0;flex-direction:column;gap:12px}.ds-tour-head{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px}.ds-tour-head p{margin:0;font-size:14px;font-weight:500}.ds-tour-head span{font-size:12px;color:var(--muted-foreground,oklch(0.552 0.016 285.938))}.ds-tour-track{overflow:hidden}.ds-tour-slide{display:flex;width:100%;flex-direction:column;gap:8px}.ds-tour-frame{position:relative;width:100%;overflow:hidden;border:1px solid var(--line,var(--border,oklch(0.92 0.004 286.32)));border-radius:8px;background:var(--muted,oklch(0.967 0.001 286.375));aspect-ratio:16/9}.ds-tour-image{display:block;width:100%;height:100%;object-fit:contain;padding:8px;cursor:zoom-in}.ds-tour-expand{position:absolute;right:8px;bottom:8px;display:flex;border-radius:6px;background:var(--background,oklch(1 0 0));padding:8px}.ds-tour-caption h4{margin:0 0 4px;font-size:14px;line-height:1.375;font-weight:500}.ds-tour-caption p{margin:0;font-size:12px;line-height:1.625;color:var(--muted-foreground,oklch(0.552 0.016 285.938))}.ds-tour-controls{display:flex;align-items:center;gap:12px}.ds-tour-arrow{display:inline-flex;width:32px;height:32px;flex:none;align-items:center;justify-content:center;border:1px solid var(--border,oklch(0.92 0.004 286.32));border-radius:8px;background:var(--background,oklch(1 0 0));color:inherit;padding:0}.ds-tour-arrow:disabled{opacity:.5}.ds-tour-progress{height:4px;min-width:0;flex:1;overflow:hidden;border-radius:9999px;background:var(--muted,oklch(0.967 0.001 286.375))}.ds-tour-progress span{display:block;width:20%;height:100%;border-radius:9999px;background:color-mix(in oklab,var(--foreground,oklch(0.141 0.005 285.823)) 70%,transparent)}.ds-tour-count{margin:0;font-size:12px;color:var(--muted-foreground,oklch(0.552 0.016 285.938));font-variant-numeric:tabular-nums}.ds-project-prose{font-size:15px;line-height:1.6;color:var(--muted-foreground,oklch(0.552 0.016 285.938))}.ds-project-prose strong{color:var(--foreground,oklch(0.141 0.005 285.823))}.ds-project-prose ul{margin-bottom:0;padding-left:24px}:host-context(.dark) .ds-tour-expand{background:var(--background,oklch(0.141 0.005 285.823))}:host-context(.dark) .ds-project-tag{background:oklch(0.21 0.006 285.885)}:host-context(.dark) .ds-project-icon{box-shadow:0 0 0 1px var(--background,oklch(0.141 0.005 285.823)),0 0 0 2px var(--line,var(--border,oklch(0.274 0.006 286.033)))}"
+    },
+    {
+      "name": "Certificate filters",
+      "kind": "custom",
+      "description": "Joined small outline toggles with muted selected state. This snippet previews their appearance; selection behavior belongs to Base UI.",
+      "html": "<div class=\"ds-filters\" role=\"group\" aria-label=\"Filter certificates\"><button class=\"ds-filter\" aria-pressed=\"true\">All</button><button class=\"ds-filter\" aria-pressed=\"false\">Top finishes</button><button class=\"ds-filter\" aria-pressed=\"false\">Participation</button></div>",
+      "css": ".ds-filters{display:flex;width:fit-content;border-radius:6px;box-shadow:0 1px 2px 0 rgb(0 0 0 / .05)}.ds-filter{font-family:var(--font-sans, \"Geist Sans\", sans-serif);color:var(--foreground,oklch(0.141 0.005 285.823));height:32px;min-width:32px;padding:0 8px;border:1px solid var(--input,oklch(0.92 0.004 286.32));border-left-width:0;border-radius:0;background:transparent;font-size:14px;font-weight:500;white-space:nowrap;transition:color 150ms,box-shadow 150ms}.ds-filter:first-child{border-left-width:1px;border-radius:6px 0 0 6px}.ds-filter:last-child{border-radius:0 6px 6px 0}.ds-filter:hover,.ds-filter[aria-pressed=true]{background:var(--muted,oklch(0.967 0.001 286.375))}.ds-filter:focus-visible{outline:2px solid var(--ring,oklch(0.705 0.015 286.067));outline-offset:2px;position:relative;z-index:10}"
+    },
+    {
+      "name": "Certificate preview frame",
+      "kind": "custom",
+      "refersTo": "certificate-preview",
+      "description": "Contained certificate artwork with a corner expand control. The caption stands in for the local certificate image in this isolated preview.",
+      "html": "<button class=\"ds-preview\" aria-label=\"View certificate record\"><span class=\"ds-preview-image\">Certificate record</span><span class=\"ds-expand\"><svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><path d=\"M8 3H5a2 2 0 0 0-2 2v3m13-5h3a2 2 0 0 1 2 2v3M3 16v3a2 2 0 0 0 2 2h3m8 0h3a2 2 0 0 0 2-2v-3\"/></svg></span></button>",
+      "css": ".ds-preview{font-family:var(--font-sans, \"Geist Sans\", sans-serif);color:var(--foreground,oklch(0.141 0.005 285.823));position:relative;display:block;width:100%;overflow:hidden;cursor:zoom-in;border:1px solid var(--line,color-mix(in oklab,var(--border,oklch(0.92 0.004 286.32)) 64%,var(--background,oklch(1 0 0))));border-radius:8px;background:var(--muted,oklch(0.967 0.001 286.375));padding:0}.ds-preview-image{display:flex;align-items:center;justify-content:center;aspect-ratio:3/2;padding:8px;object-fit:contain;font-size:14px}.ds-expand{background:var(--background,oklch(1 0 0));position:absolute;right:8px;bottom:8px;display:flex;padding:8px;border-radius:6px}.ds-preview:focus-visible{outline:2px solid var(--ring,oklch(0.705 0.015 286.067));outline-offset:2px;}"
+    }
+  ],
+  "narrative": {
+    "overview": "The shipped portfolio uses a monochrome light/dark interface in a centered column. Thin panel rules and compact typography organize the content. Project icons, compact product tours of real screenshots, and certificate images supply the visual detail.\n\nThis scan records the existing implementation after the product-tour, default expansion, and merged Certificates & results correction. All five projects now use captioned product tours built from 19 real screenshots. It introduces no new visual direction. Authority is the shipped source and the final tour screenshots in `.impeccable/review/product-tour-final-*.png`.",
+    "keyCharacteristics": [],
+    "rules": [],
+    "dos": [
+      "Do reuse the existing panel rules, Geist typography, neutral theme variables, tags, and action icons.",
+      "Do preserve project screenshots' original pixels and aspect in tour frames, allowing only the intentional CSS crop for tall captures, and keep complete certificate images with contain sizing and direct source or credential links."
+    ],
+    "donts": [
+      "Don't introduce a new accent palette or redesign the incumbent portfolio theme for these sections.",
+      "Don't turn the gallery cells into floating cards or replace the existing project summary and Expand/Collapse structure."
+    ]
+  }
+}

@@ -2,29 +2,40 @@ import { MedalIcon, NewspaperIcon, TrophyIcon } from "lucide-react"
 
 import type { Award } from "../types/awards"
 
-// Content seeded from vinay-resume-2.pdf.
-// NOTE: the resume carries no dates for these achievements; dates below are
-// best-guess placeholders — correct them once Vinay confirms.
+// Resume content supplemented by the supplied certificates showcase.
 export const AWARDS: Award[] = [
+  {
+    id: "buildverse",
+    prize: "3rd prize",
+    title: "BUILDVERSE Hackathon — ReadEasy",
+    date: "2026-09-06",
+    grade: "120 teams",
+    icon: <TrophyIcon />,
+    description:
+      "ReadEasy won third prize out of 120 teams at BUILDVERSE, organized by ACM Dallas and IEEE Dallas PES/IAS/PELS. Remote entry at UT Dallas; $50 prize.",
+    referenceLink: "/certificates/buildverse.png",
+  },
   {
     id: "chaicode-hackathon",
     prize: "8th place",
     title: "ChaiCode Hackathon — placed 8th nationwide with NovusMail",
-    date: "2025-07", // TODO: verify actual date
+    date: "", // Date not supplied; do not display a guessed date.
     grade: "Nationwide",
     icon: <TrophyIcon />,
     description:
-      "Placed 8th nationwide in the ChaiCode Hackathon with NovusMail.",
+      "NovusMail placed 8th overall with 84/100 in the Command Inbox: Corsair Hackathon. No certificate was issued; the official results screenshot is attached.",
+    referenceLink: "/certificates/chaicode-results.jpg",
   },
   {
     id: "hackbuzz",
     prize: "4th place",
     title: "HackBuzz — placed 4th with Project Ghost",
-    date: "2025-03", // TODO: verify actual date
+    date: "2026-05",
     grade: "NCET Bengaluru",
     icon: <MedalIcon />,
     description:
-      "Placed 4th in HackBuzz, conducted by NCET Bengaluru, with Project Ghost.",
+      "Project Ghost placed 4th at HackBuzz during IKYA 2026, May 7–8 at NCET Bengaluru. The attached participation certificate records attendance at the event.",
+    referenceLink: "/certificates/ikya.jpg",
   },
   {
     id: "writing-milestone",

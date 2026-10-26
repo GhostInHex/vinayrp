@@ -4,7 +4,7 @@ export type Award = {
   title: string
   /**
    * Award date used for sorting and display.
-   * Format: "YYYY-MM" preferred (e.g., "2018-03"); "YYYY" is also accepted.
+   * Format: "YYYY-MM" preferred; an empty string means date unknown.
    */
   date: string
   /**

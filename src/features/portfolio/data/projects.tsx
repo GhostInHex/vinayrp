@@ -1,18 +1,26 @@
-import { GhostIcon, MailIcon } from "lucide-react"
+import {
+  BookOpenIcon,
+  GhostIcon,
+  MailIcon,
+  ScanSearchIcon,
+  TimerIcon,
+} from "lucide-react"
 
 import type { Project } from "../types/projects"
+import { PROJECT_TOURS } from "./project-tours"
 
-// Content seeded from vinay-resume-2.pdf.
-// NOTE: the resume carries no project dates; periods are best-guess
-// placeholders — correct them once Vinay confirms the timelines.
+// Curated from the resume and each project's public repository README.
+// Dates are omitted rather than presenting repository creation as project start.
 export const PROJECTS: Project[] = [
   {
     id: "novusmail",
+    tour: PROJECT_TOURS["novusmail"],
+    isExpanded: true,
     title: "NovusMail",
-    period: {
-      start: "06.2025", // TODO: verify actual start
-      // Ongoing — omit `end`.
-    },
+    summary:
+      "A keyboard-first Gmail and Google Calendar workspace with an AI copilot for email triage and scheduling.",
+    sourceUrl: "https://github.com/GhostInHex/novus-mail",
+    recognition: "8th place · ChaiCode",
     link: "https://novus.vinayrp.in/",
     skills: [
       "Next.js",
@@ -33,14 +41,43 @@ export const PROJECTS: Project[] = [
 
 [Live Demo](https://novus.vinayrp.in/) · [Source Code](https://github.com/GhostInHex/novus-mail)`,
     icon: <MailIcon />,
+  },
+  {
+    id: "readeasy",
+    tour: PROJECT_TOURS["readeasy"],
     isExpanded: true,
+    title: "ReadEasy",
+    summary:
+      "Turns dense web pages into plain-language reading modes, spoken text, and actionable checklists.",
+    sourceUrl: "https://github.com/GhostInHex/readeasy",
+    recognition: "3rd prize · BUILDVERSE",
+    link: "https://readeasy-eight.vercel.app",
+    skills: [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "OpenRouter",
+      "Mozilla Readability",
+      "Web Speech API",
+    ],
+    description: `**Accessible reading with AI-assisted restructuring**
+
+- Built five reading modes for readers with dyslexia, ADHD, or low vision, with side-by-side original text, reading-level controls, and read-aloud support.
+- Added a server-side fetch, clean, and restructure pipeline that returns structured JSON, plus questions grounded in the page's text.
+- Bundled cached demo pages and a raw-text input path so the product remains demonstrable when sites block fetching or an API is unavailable.
+
+[Live Demo](https://readeasy-eight.vercel.app) · [Source Code](https://github.com/GhostInHex/readeasy)`,
+    icon: <BookOpenIcon />,
   },
   {
     id: "project-ghost",
+    tour: PROJECT_TOURS["project-ghost"],
+    isExpanded: false,
     title: "Project Ghost",
-    period: {
-      start: "02.2025", // TODO: verify actual start
-    },
+    summary:
+      "Makes contributions visible in student teams through daily updates, peer reviews, and AI-assisted reflections.",
+    sourceUrl: "https://github.com/GhostInHex/Project-Ghost",
+    recognition: "4th place · HackBuzz",
     link: "https://new-project-dun-tau.vercel.app/",
     skills: [
       "React",
@@ -59,5 +96,51 @@ export const PROJECTS: Project[] = [
 
 [Live App](https://new-project-dun-tau.vercel.app/) · [Source Code](https://github.com/GhostInHex/Project-Ghost)`,
     icon: <GhostIcon />,
+  },
+  {
+    id: "impacttrace",
+    tour: PROJECT_TOURS["impacttrace"],
+    isExpanded: false,
+    title: "ImpactTrace",
+    summary:
+      "Organizes field photos and videos into reviewed sustainability evidence and reports with source links.",
+    sourceUrl: "https://github.com/GhostInHex/impacttrace",
+    link: "https://impact-trace-gules.vercel.app/",
+    skills: [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "Cloudinary",
+      "OpenRouter",
+      "Zustand",
+    ],
+    description: `**AI evidence workspace built for Code Cubicle 6.0**
+
+- Integrated Cloudinary tagging, captioning, and OCR with a review workflow for confirming, rejecting, and editing evidence before report generation.
+- Built project timelines, before-and-after comparisons, and printable impact reports that retain the original media sources.
+- Added natural-language query planning over a permitted public dataset, with source links on every row. The MVP stores projects in browser localStorage and labels sample data and provider fallbacks.
+
+[Live Demo](https://impact-trace-gules.vercel.app/) · [Source Code](https://github.com/GhostInHex/impacttrace)`,
+    icon: <ScanSearchIcon />,
+  },
+  {
+    id: "deadmon",
+    tour: PROJECT_TOURS["deadmon"],
+    isExpanded: false,
+    title: "deadmon",
+    summary:
+      "A Python hackathon-listing pipeline with verification, crawl traces, and a server-rendered dashboard.",
+    sourceUrl: "https://github.com/GhostInHex/deadmon",
+    link: "https://deadmon.vercel.app/",
+    status: "Prototype",
+    skills: ["Python", "pytest", "Data extraction", "Observability"],
+    description: `**Reproducible crawl-pipeline prototype for neatHack**
+
+- Implemented the first pipeline slice: parse recorded Unstop listings, verify deadlines and listing status, store results, and render verdicts on a server-rendered dashboard.
+- Added deterministic fixture-based tests and crawl tracing with a local fallback when the tracing provider is unavailable.
+- Current scope uses recorded fixtures. Live collection, scheduled refresh, eligibility matching, alerts, and self-healing are planned rather than shipped.
+
+[Live Demo](https://deadmon.vercel.app/) · [Source Code](https://github.com/GhostInHex/deadmon)`,
+    icon: <TimerIcon />,
   },
 ]
